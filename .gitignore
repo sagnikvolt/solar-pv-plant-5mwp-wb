@@ -21,3 +21,7 @@ desktop.ini
 # PVsyst scratch
 PVsyst7.0_Data/UserRecycleBin/
 PVsyst7.0_Data/UserBatch/
+
+# Sync scratch
+_to_delete/
+*.bundle
