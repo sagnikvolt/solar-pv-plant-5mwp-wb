@@ -15,7 +15,7 @@ img{max-width:100%;display:block;margin:8px auto;break-inside:avoid}
 
 <h1>5 MWp Ground-Mount Solar PV Plant<br>Design and Energy Yield Assessment</h1>
 <p class="sub">Resource site: Kolkata, West Bengal (22.57 °N, 88.36 °E) &nbsp;|&nbsp; Sagnik Kumar Nath, B.Tech Electrical Engineering, IEM Kolkata &nbsp;|&nbsp; <b>DRAFT, 28 Oct 2026</b></p>
-<div class="note"><b>Status:</b> preliminary desk design. No site survey, soil data or vendor quotes. Layout and single-line drawings (AutoCAD) are still to be added. Cost figures are indicative only.</div>
+<div class="note"><b>Status:</b> preliminary desk design. No site survey, soil data or vendor quotes. Layout and single-line drawings are included but schematic. Cost figures are indicative only.</div>
 
 <h2>1. Summary</h2>
 <table>
@@ -60,8 +60,9 @@ img{max-width:100%;display:block;margin:8px auto;break-inside:avoid}
 <tr><td>Module and string mismatch</td><td>2.05</td><td>Unavailability</td><td>1.01</td></tr>
 <tr><td>IAM</td><td>2.01</td><td>DC wiring</td><td>0.93</td></tr>
 <tr><td>Near shading</td><td>1.75</td><td>LID</td><td>0.50</td></tr></table>
+<img src="../showcase/images/monthly_energy_pr_VC4.png" style="width:92%"><p class="cap">Figure 5. Monthly energy and performance ratio (the June dip is an unavailability artefact).</p>
 <p>Bifacial gain is +4.4% (monofacial 6,712 vs bifacial 7,006 MWh at 7.0 m). Result: 7,078 MWh/yr, PR 85.65%.</p>
-<img src="../showcase/images/pvsyst_loss_diagram_VC4_pitch8m.png" style="width:92%"><p class="cap">Figure 5. PVsyst loss diagram, VC4 (raw export; right-hand labels are clipped).</p>
+<img src="../showcase/images/loss_steps_VC4_clean.png" style="width:92%"><p class="cap">Figure 6. Loss steps from the PVsyst VC4 report (step sizes are my arithmetic from PVsyst percentages).</p>
 
 <h2 class="pb">5. Uncertainty and cross-check</h2>
 <table><tr><th>Component</th><th>σ (%)</th></tr>
@@ -81,8 +82,9 @@ img{max-width:100%;display:block;margin:8px auto;break-inside:avoid}
 <p>PVsyst does not model the AC side. Estimated AC-side losses are 161 MWh/yr (2.28%): cables 33.6, transformer load loss 70.1, transformer no-load 36.8, 33 kV line 20.9 MWh. The load-form factor (0.20) is an assumption. Net energy at the 33 kV point: 6,917 MWh/yr. Cable lengths are placeholders until the layout is drawn.</p>
 
 <h2 style="break-before:page">7. Drawings</h2>
-<div class="ph">Plant layout (AutoCAD): <i>to be added</i></div>
-<div class="ph">Single-line diagram (AutoCAD): <i>to be added</i></div>
+<p>Both drawings are preliminary and schematic. They were generated from the design numbers with a Python script (<code>calcs/make_drawings.py</code>) and saved as DXF, then opened and saved as DWG in AutoCAD 2027 (education licence). Inverter, transformer and yard symbols are enlarged, the yard position and 33 kV route are placeholders, and string-to-inverter routing is not designed yet.</p>
+<img src="../drawings/SPV5-DWG-01-Layout-R0.png" style="width:100%"><p class="cap">Drawing 1. Plant layout (plan): 17 rows, 170 tables, 16 inverters, 2 transformers. Fence about 6.2 ha including roads and the yard.</p>
+<img src="../drawings/SPV5-DWG-02-SLD-R0.png" style="width:100%"><p class="cap">Drawing 2. Single-line diagram. Earthing, lightning protection, auxiliary supply and SCADA are not shown.</p>
 
 <h2>8. Economics and CO₂</h2>
 <p>Quantities come from the design (8,840 modules, 16 inverters, 2 transformers, 170 tables). Unit costs come from a published indicative guide (taypro.in, June 2026), which is a commercial source, not a regulator benchmark.</p>
@@ -102,6 +104,7 @@ img{max-width:100%;display:block;margin:8px auto;break-inside:avoid}
 <li>PVsyst warns about unequal string counts across MPPT inputs (44 inputs carry 1 string, 148 carry 2); not yet resolved.</li>
 <li>Module ALMM/DCR status and datasheet PDFs not yet verified or saved.</li>
 <li>Economics are indicative and unreconciled with market tariffs.</li>
+<li>Drawings are schematic and have not been checked by a practising engineer; AutoCAD files carry the education-licence marking.</li>
 <li>PVsyst academic licence; the licence bar read "0 days remaining" on 28 Oct 2026.</li>
 </ul>
 <p class="sub">All assumptions with sources are in <code>ASSUMPTIONS.md</code>; code and outputs are in <code>calcs/</code>. Repository: github.com/sagnikvolt/solar-pv-plant-5mwp-wb</p>

@@ -15,17 +15,21 @@ Everything here is meant to be shown publicly. Items marked **PRELIMINARY** come
 | PVsyst simulation report, VC4 (8 pages) | `pvsyst_report_VC4_pitch8m_PRELIMINARY.pdf` | **PRELIMINARY** (current design) |
 | Row pitch trade-off chart | `images/row_pitch_tradeoff.png` | Final data, from the PVsyst sweep |
 
-| Draft design report (7 pages) | `../report/5MWp_solar_design_report_DRAFT.pdf` | DRAFT, drawings to be added |
+| Plant layout drawing | `../drawings/SPV5-DWG-01-Layout-R0.png` / `.pdf` | R0, schematic |
+| Single-line diagram | `../drawings/SPV5-DWG-02-SLD-R0.png` / `.pdf` | R0, schematic |
+| Loss steps chart (clean, VC4) | `images/loss_steps_VC4_clean.png` | Redrawn from the PVsyst report numbers; preliminary |
+| Monthly energy and PR (VC4) | `images/monthly_energy_pr_VC4.png` | From the PVsyst report table; preliminary |
+| Draft design report (8 pages) | `../report/5MWp_solar_design_report_DRAFT.pdf` | DRAFT, drawings to be added |
 | LinkedIn entry, post, CV bullets | `../linkedin/README.md` | Drafts, post after drawings and repo public |
 
 Regenerate the charts with `python calcs/make_showcase_charts.py`.
 
 ## Still to capture
-- [ ] Clean loss diagram (re-export or redraw from the PVsyst report numbers)
-- [ ] PVsyst results dashboard (monthly energy, PR)
+- [x] Clean loss diagram (redrawn from report numbers: `images/loss_steps_VC4_clean.png`)
+- [x] Monthly energy and PR (`images/monthly_energy_pr_VC4.png`; PVsyst's own dashboard screenshot not captured)
 - [ ] System overview screenshot
 - [ ] Final PVsyst report PDF with P50/P90
-- [ ] Plant layout and single-line diagram (PDF/PNG from AutoCAD)
+- [x] Plant layout and single-line diagram (PDF/PNG in `drawings/`)
 - [ ] LinkedIn post cover image (loss diagram plus key numbers)
 
 ## Honest caveats to carry into any post

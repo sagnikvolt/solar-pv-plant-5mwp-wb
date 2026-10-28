@@ -27,7 +27,7 @@ Term-II exams: 2–4 Nov (no project work).
 ## Week 3 (19–25 Nov): electrical, drawings, economics (SDP781 on 23 Nov)
 - [x] DC string and DC main cable sizing (voltage drop, ampacity, derating)
 - [x] AC cable, inverter transformer and 33 kV evacuation concept
-- [ ] AutoCAD layout and SLD exported to PDF
+- [x] Layout and SLD drawn (Python/ezdxf), saved as DWG in AutoCAD, PDF/PNG exported
 - [x] BOQ, capex, LCOE, payback and CO₂ avoided (indicative; costs need a real benchmark)
 
 ## Week 4 (26–30 Nov): package and publish

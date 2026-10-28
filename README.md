@@ -1,6 +1,6 @@
 # 5 MWp Solar PV Plant: Design & Energy Yield Assessment (West Bengal)
 
-> **Status: in progress (about 70%).** Done: site, equipment, strings, PVsyst yield and P50/P90, cross-check, cable sizing, indicative economics, draft 7-page report. Still to do: AutoCAD layout and single-line diagram, plot and substation choice. Target completion is 30 Nov 2026. Any number marked *TBD* has not been calculated yet.
+> **Status: in progress (about 85%).** Done: site, equipment, strings, PVsyst yield and P50/P90, cross-check, cable sizing, indicative economics, layout and single-line drawings, draft 8-page report. Still to do: plot and substation choice, a reconciled cost benchmark, my own rewrite of the interview answers. Target completion is 30 Nov 2026. Any number marked *TBD* has not been calculated yet.
 
 A complete preliminary design package for a 5 MWp ground-mounted, fixed-tilt solar PV plant at a real site in West Bengal, India. It is laid out the way a solar EPC or developer design team would prepare one: site and resource assessment, equipment selection, string sizing, a PVsyst energy-yield simulation with P50/P90, independent cross-checks, electrical sizing, drawings and a basic financial model.
 
@@ -41,7 +41,7 @@ A complete preliminary design package for a 5 MWp ground-mounted, fixed-tilt sol
 4. **Energy simulation:** PVsyst with a 3D near-shading scene, loss diagram, PR, and P50/P90. → [`pvsyst/`](pvsyst/)
 5. **Cross-checks:** NREL SAM and PVGIS, with any difference above 3% explained.
 6. **Electrical sizing:** DC and AC cables (voltage drop, ampacity, derating), DCDB/ACDB, inverter transformer, and the 33 kV evacuation concept.
-7. **Drawings:** plant layout and single-line diagram (AutoCAD). → [`drawings/`](drawings/)
+7. **Drawings:** plant layout and single-line diagram, generated in Python and saved as DWG in AutoCAD. → [`drawings/`](drawings/)
 8. **BOQ and economics:** capex, LCOE, payback and CO₂ avoided.
 9. **Report:** → [`report/`](report/)
 
@@ -53,7 +53,7 @@ Every design assumption, with its value, source and reason, is logged in **[ASSU
 data/          site info, weather data comparison, equipment datasheets
 calcs/         string sizing (Python + Excel), later cable sizing & economics
 pvsyst/        PVsyst project files, exported reports, screenshots
-drawings/      layout and SLD (DWG + PDF)
+drawings/      layout and single-line diagram (DWG, DXF, PDF, PNG)
 report/        draft PDF report (report.html is its source), interview Q&A drafts
 linkedin/      LinkedIn Projects entry, post draft, CV bullets
 showcase/      images and PDFs meant for public posting
@@ -63,7 +63,7 @@ PLAN.md        4-week work plan and checklist
 
 ## Tools
 
-PVsyst (IEM academic licence), NREL SAM, PVGIS, NASA POWER, AutoCAD (Autodesk Education), Python, Excel.
+PVsyst (IEM academic licence), NREL SAM, PVGIS, NASA POWER, Python (including `ezdxf` for drawings), AutoCAD 2027 (Autodesk Education licence, used to open and save the DWG files), Excel.
 
 ## Run the calculations
 
@@ -74,6 +74,7 @@ python calcs/string_sizing.py                            # uses calcs/config/des
 python calcs/string_sizing.py --config calcs/config/example_inputs.json   # worked example
 python calcs/cable_sizing.py                            # cable sizing and AC-side losses
 python calcs/economics.py                               # BOQ scope, capex, LCOE, CO2 (needs cable_sizing first)
+python calcs/make_drawings.py                           # layout and SLD (needs ezdxf, matplotlib)
 python calcs/make_report.py                             # report/report.html to PDF (needs Playwright)
 python -m unittest discover calcs/tests
 ```
@@ -88,4 +89,4 @@ The string sizing needs only the Python 3 standard library; the cross-check scri
 - Module-string shading and monthly soiling are not modelled; PVsyst warns about unequal MPPT string counts.
 - Module ALMM/DCR status is unverified.
 - PVsyst is used under an academic licence.
-- Drawings are not yet included.
+- Drawings are schematic (symbols enlarged, yard and 33 kV route are placeholders) and not checked by a practising engineer.

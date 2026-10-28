@@ -25,3 +25,8 @@ PVsyst7.0_Data/UserBatch/
 # Sync scratch
 _to_delete/
 *.bundle
+
+# AutoCAD lock/backup files
+*.dwl
+*.dwl2
+*.bak

@@ -128,3 +128,63 @@ irradiance()
 string_card()
 pitch_chart()
 print("saved", sorted(os.listdir(OUT)))
+
+# ---- PVsyst VC4 numbers, copied from showcase/pvsyst_report_VC4_pitch8m_PRELIMINARY.pdf (page 5 and 7)
+VC4_MONTHLY = [  # month, E_Grid kWh, PR
+    ("Jan", 602898, .893), ("Feb", 584978, .876), ("Mar", 712927, .853), ("Apr", 709930, .847),
+    ("May", 695431, .852), ("Jun", 491910, .785), ("Jul", 521809, .865), ("Aug", 524042, .857),
+    ("Sep", 524913, .856), ("Oct", 571700, .861), ("Nov", 582257, .874), ("Dec", 555258, .860)]
+VC4_LOSSES = [  # step, % (applied in sequence to the array nominal energy 8,179,891 kWh)
+    ("Irradiance level", .77), ("Temperature", 5.59), ("LID", .50), ("Mismatch (modules, strings)", 2.05),
+    ("Mismatch (rear side)", .55), ("DC wiring", .93), ("Inverter efficiency", 1.61),
+    ("Inverter clipping (over nominal power)", 1.22), ("Unavailability", 1.01)]
+
+def loss_waterfall():
+    e = 8179.891
+    start = e
+    steps = []
+    for name, pct in VC4_LOSSES:
+        loss = e * pct / 100
+        steps.append((name, pct, e - loss, loss))
+        e -= loss
+    fig, ax = plt.subplots(figsize=(10, 5.8), dpi=200)
+    names = ["Array nominal energy (at STC)"] + [s[0] for s in steps] + ["Energy injected into grid"]
+    y = list(range(len(names)))[::-1]
+    ax.barh(y[0], start, color="#94a3b8", height=0.62)
+    ax.text(start + 20, y[0], f"{start:,.0f} MWh", va="center", fontsize=10.5, fontweight="bold", color=INK)
+    for yi, (name, pct, left, loss) in zip(y[1:-1], steps):
+        ax.barh(yi, loss, left=left, color="#b45309", height=0.62)
+        ax.text(start + 20, yi, f"-{loss:,.0f} MWh  ({pct:.2f}%)", va="center", fontsize=10, color=INK)
+    ax.barh(y[-1], 7078.053, color="#0f766e", height=0.62)
+    ax.text(7078.053 + 20, y[-1], "7,078 MWh", va="center", fontsize=10.5, fontweight="bold", color=INK)
+    ax.set_yticks(y); ax.set_yticklabels(names, fontsize=10, color=INK)
+    ax.set_xlim(6800, 8900); ax.set_xlabel("Annual energy (MWh), axis starts at 6,800", color=MUTED)
+    ax.grid(axis="x", alpha=.2)
+    fig.suptitle("Where the energy goes: PVsyst VC4 loss steps", x=0.04, ha="left", fontsize=17, fontweight="bold", color=INK)
+    fig.text(0.04, 0.9, "Bifacial 20° fixed tilt, 8.0 m pitch, Kolkata. Optical steps (shading, soiling, bifacial gain) are already inside the array nominal energy.", fontsize=9.5, color=MUTED)
+    fig.text(0.04, 0.012, "Step sizes are my arithmetic from PVsyst's percentages (rounding within about 1 MWh). Preliminary; AC-side losses (about 2.3%) are not in PVsyst.", fontsize=8, color=MUTED)
+    fig.tight_layout(rect=(0, 0.03, 1, 0.89))
+    fig.savefig(os.path.join(OUT, "loss_steps_VC4_clean.png"))
+
+def monthly_chart():
+    m = [r[0] for r in VC4_MONTHLY]; en = [r[1] / 1000 for r in VC4_MONTHLY]; pr = [r[2] for r in VC4_MONTHLY]
+    fig, (ax, ax2) = plt.subplots(1, 2, figsize=(10.5, 5), dpi=200, gridspec_kw={"width_ratios": [1.35, 1]})
+    cols = ["#99c9c4" if x == "Jun" else "#0f766e" for x in m]
+    bars = ax.bar(m, en, color=cols, width=0.65)
+    for b_, v in zip(bars, en):
+        ax.text(b_.get_x() + b_.get_width() / 2, v + 8, f"{v:,.0f}", ha="center", fontsize=8.5, color=INK)
+    ax.set_ylim(0, 800); ax.set_ylabel("Energy injected into grid (MWh)", color=MUTED); ax.grid(axis="y", alpha=.2)
+    ax.set_title("Monthly energy", loc="left", fontsize=12, fontweight="bold", color=INK)
+    ax2.plot(m, pr, color="#b45309", marker="o", markersize=6, linewidth=2)
+    ax2.set_ylim(0.75, 0.92); ax2.set_ylabel("Performance ratio, axis starts at 0.75", color=MUTED); ax2.grid(axis="y", alpha=.2)
+    ax2.set_title("Monthly performance ratio", loc="left", fontsize=12, fontweight="bold", color=INK)
+    ax2.annotate("June: random 3.7-day\nunavailability period", xy=(5, pr[5]), xytext=(5.6, 0.775), fontsize=8.5, color=MUTED,
+                 arrowprops=dict(arrowstyle="-", color=MUTED))
+    plt.setp(ax2.get_xticklabels(), fontsize=8.5)
+    fig.suptitle("Plant output by month: 7,078 MWh/yr, PR 85.6%", x=0.04, ha="left", fontsize=17, fontweight="bold", color=INK)
+    fig.text(0.04, 0.012, "PVsyst 7.4 VC4 (bifacial, 8.0 m pitch), Meteonorm 8.1 Kolkata. The June dip is an artefact of how PVsyst places unavailability; annual total is unaffected. Preliminary.", fontsize=8, color=MUTED)
+    fig.tight_layout(rect=(0, 0.03, 1, 0.92))
+    fig.savefig(os.path.join(OUT, "monthly_energy_pr_VC4.png"))
+
+loss_waterfall()
+monthly_chart()
