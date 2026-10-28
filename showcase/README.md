@@ -7,14 +7,16 @@ Everything here is meant to be shown publicly. Items marked **PRELIMINARY** come
 | Irradiance source comparison (Meteonorm vs NASA POWER vs PVGIS) | `images/irradiance_comparison.png` | Final data |
 | String design summary (Voc, Vmp and current checks) | `images/string_design_summary.png` | Final data |
 | PVsyst loss diagram, VC0 baseline | `images/pvsyst_loss_diagram_VC0_baseline.png` | **PRELIMINARY.** No near shading, no soiling. Raw export clips the title and right-hand labels: redo for the final |
-| PVsyst simulation report, VC0 baseline (6 pages) | `pvsyst_report_VC0_baseline_PRELIMINARY.pdf` | **PRELIMINARY** |
+| PVsyst simulation report, VC0 baseline (6 pages) | `pvsyst_report_VC0_baseline_PRELIMINARY.pdf` | **PRELIMINARY**, superseded by VC1 |
+| PVsyst loss diagram, VC1 (bifacial, shading, soiling) | `images/pvsyst_loss_diagram_VC1_bifacial_shaded.png` | **PRELIMINARY.** Raw export clips edges, and its title still says "Base case" (renamed afterwards): redo for the final |
+| 3D shading scene, 17 rows, 8,840 modules | `images/pvsyst_3d_scene_VC1.jpg` | Working capture, low resolution (876×589) |
+| PVsyst simulation report, VC1 (8 pages) | `pvsyst_report_VC1_bifacial_shaded_PRELIMINARY.pdf` | **PRELIMINARY** |
 
 Regenerate the two charts with `python calcs/make_showcase_charts.py`.
 
 ## Still to capture
 - [ ] Final loss diagram after 3D shading, soiling and the loss review
 - [ ] PVsyst results dashboard (monthly energy, PR)
-- [ ] 3D near-shading scene screenshot
 - [ ] System overview screenshot
 - [ ] Final PVsyst report PDF with P50/P90
 - [ ] Plant layout and single-line diagram (PDF/PNG from AutoCAD)

@@ -18,10 +18,10 @@ Term-II exams: 2–4 Nov (no project work).
 
 ## Week 2 (12–18 Nov): PVsyst
 - [x] Project, orientation and system set up in PVsyst (done 28 Oct; VC0 baseline run)
-- [ ] Row pitch and ground cover ratio chosen (shading vs land trade-off)
-- [ ] 3D near-shading scene
-- [ ] Simulation run; loss diagram, PR and specific yield recorded
-- [ ] P50/P90 uncertainties set (weather year-to-year variability, model, module, etc.)
+- [x] Row pitch 7.0 m chosen (6.4 m minimum for no shading); **pitch sweep 6.4 / 8 / 9 m still to run**
+- [x] 3D near-shading scene (17 sheds, 8,840 modules) and bifacial model
+- [x] Simulation run (VC1); loss diagram, PR and specific yield recorded
+- [x] P50/P90 uncertainty budget set (`calcs/p50_p90.py`); **assumptions to review**
 - [ ] Cross-checked with SAM and PVGIS, and any difference above 3% explained
 
 ## Week 3 (19–25 Nov): electrical, drawings, economics (SDP781 on 23 Nov)
