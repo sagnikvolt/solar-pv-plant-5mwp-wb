@@ -1,0 +1,35 @@
+{
+  "_readme": "WORKED EXAMPLE ONLY. Generic, rounded values typical of a 550 Wp mono-PERC module and a 1500 V string inverter. Not a real product. Used to test the script; do not quote these numbers as the project design.",
+  "module": {
+    "model": "Generic 550 Wp mono PERC (example)",
+    "Pmax_W": 550,
+    "Voc_V": 49.8,
+    "Vmp_V": 41.9,
+    "Isc_A": 14.0,
+    "beta_Voc_pct_per_C": -0.27,
+    "beta_Vmp_pct_per_C_optional": null,
+    "gamma_Pmax_pct_per_C": -0.35,
+    "alpha_Isc_pct_per_C": 0.048,
+    "NOCT_C": 45
+  },
+  "inverter": {
+    "model": "Generic 1500 V, 250 kW string inverter (example)",
+    "Pac_kW": 250,
+    "Vdc_max_V": 1500,
+    "Vmppt_min_V": 500,
+    "Vmppt_max_V": 1500,
+    "n_MPPT": 12,
+    "Isc_max_per_MPPT_A": 50
+  },
+  "site": {
+    "name": "Example site, western West Bengal",
+    "T_amb_record_min_C": 3,
+    "T_amb_design_max_C": 45
+  },
+  "design": {
+    "target_DC_kWp": 5000,
+    "target_DC_AC_ratio": 1.25,
+    "bifacial_rear_gain_frac": 0.0,
+    "modules_per_string_optional": null
+  }
+}

@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Office lock / temp files
+~$*
+*.tmp
+
+# AutoCAD backups and locks
+*.bak
+*.dwl
+*.dwl2
+*.sv$
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store

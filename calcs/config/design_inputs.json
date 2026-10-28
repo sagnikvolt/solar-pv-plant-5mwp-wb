@@ -1,0 +1,35 @@
+{
+  "_readme": "Fill every null from the chosen module/inverter datasheets and site data. Keys ending in _optional may stay null. Record sources in ASSUMPTIONS.md.",
+  "module": {
+    "model": null,
+    "Pmax_W": null,
+    "Voc_V": null,
+    "Vmp_V": null,
+    "Isc_A": null,
+    "beta_Voc_pct_per_C": null,
+    "beta_Vmp_pct_per_C_optional": null,
+    "gamma_Pmax_pct_per_C": null,
+    "alpha_Isc_pct_per_C": null,
+    "NOCT_C": null
+  },
+  "inverter": {
+    "model": null,
+    "Pac_kW": null,
+    "Vdc_max_V": null,
+    "Vmppt_min_V": null,
+    "Vmppt_max_V": null,
+    "n_MPPT": null,
+    "Isc_max_per_MPPT_A": null
+  },
+  "site": {
+    "name": null,
+    "T_amb_record_min_C": null,
+    "T_amb_design_max_C": null
+  },
+  "design": {
+    "target_DC_kWp": 5000,
+    "target_DC_AC_ratio": 1.25,
+    "bifacial_rear_gain_frac": 0.0,
+    "modules_per_string_optional": null
+  }
+}
