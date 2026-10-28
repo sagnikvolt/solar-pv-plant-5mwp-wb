@@ -28,7 +28,7 @@ Designed a 5 MWp fixed-tilt, bifacial ground-mount solar plant using Kolkata's c
 > Three things I learned:
 > 1. Row spacing is a trade-off, not a number. Going from 6.4 m to 9.0 m pitch added about 2.6% energy but needed 39% more land. I picked 8.0 m.
 > 2. Different weather databases disagree. Kolkata's yearly irradiation is 1,574 (Meteonorm), 1,669 (NASA POWER) or 1,730 (PVGIS) kWh/m². My SAM check was 4.6% above PVsyst until I scaled it to the same irradiance, then +0.9%. The model was fine; the data source wasn't.
-> 3. String sizing is set by the coldest morning. At 3.4 °C a 27-module string came within 3 V of the 1,500 V limit, so I used 26.
+> 3. String sizing is set by the coldest morning. At 3.4 °C, 27 modules of my first module choice reached 1,497 V, just 3 V under the 1,500 V limit. With the final module 27 would still be only 20 V under, so I used 26 for a 5% margin.
 >
 > Result: 7,078 MWh/yr, PR 85.6%, P90 6,458 MWh/yr (assuming a 6.8% uncertainty). Layout and single-line diagram are in the repo (schematic for now).
 >

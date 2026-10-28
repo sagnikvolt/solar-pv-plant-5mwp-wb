@@ -39,7 +39,7 @@ img{max-width:100%;display:block;margin:8px auto;break-inside:avoid}
 
 <h2>3. Equipment and string design</h2>
 <p>Modules are 565 Wp rather than 580 Wp because two 580 W strings would draw 26.36 A on one inverter MPPT, above its 26 A limit. The SG250HX has 12 MPPTs with two string inputs each, 600 to 1,500 V.</p>
-<p>The string length uses the cold limit: module Voc at 3.4 °C is 54.81 V, so at most 27 modules fit under 1,500 V. 27 modules leave only 3 V of margin, so 26 were chosen (Voc,max 1,425 V; Vmp range 960 to 1,206 V against the 600 V inverter minimum).</p>
+<p>The string length uses the cold limit: module Voc at 3.4 °C is 54.81 V, so at most 27 modules fit under 1,500 V. 27 modules would reach 1,480 V, only 20 V (1.3%) under the limit, so 26 were chosen for a 5% margin (Voc,max 1,425 V; Vmp range 960 to 1,206 V against the 600 V inverter minimum).</p>
 <table><tr><th>Check</th><th>Result</th></tr>
 <tr><td>Voc (cold) × 26 ≤ 1,500 V</td><td>1,425 V, pass</td></tr>
 <tr><td>Vmp (hot, 75.8 °C cell) × 26 ≥ 600 V</td><td>960 V, pass</td></tr>
