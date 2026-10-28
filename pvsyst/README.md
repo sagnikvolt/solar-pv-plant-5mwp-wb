@@ -1,17 +1,28 @@
 # PVsyst
 
-Put the PVsyst project files (`.PRJ`, `.VCi`, `.SIT`, `.MET`, plus any custom `.PAN`/`.OND`) and the exported PDF reports here.
+PVsyst 7.4 workspace: `PVsyst7.0_Data/` in the project root (selected as the PVsyst *user workspace*), so the project files live in the repo.
 
-## Licence check (do this first)
-- [ ] Licence type and version (screenshot saved to `screenshots/licence.png`)
-- [ ] Indian manufacturers in the module database (Waaree / Vikram / Websol / Adani / Premier)
-- [ ] 1500 V inverters in the database (Sungrow / SMA / Huawei / Power Electronics)
-- [ ] Meteonorm import works for a West Bengal coordinate
-- [ ] Test-simulation report: is there a watermark or an "educational" banner? (screenshot `screenshots/report_header.png`)
+| Item | File |
+|---|---|
+| Project | `PVsyst7.0_Data/Projects/SPV5_Kolkata_5MWp_Project.PRJ` |
+| Variant VC0 | `PVsyst7.0_Data/Projects/SPV5_Kolkata_5MWp_Project.VC0` |
+| Site (Meteonorm 8.1) | `PVsyst7.0_Data/Sites/Kolkata_MN81.SIT` |
+| Weather | `PVsyst7.0_Data/Meteo/Kolkata_MN81_SYN.MET` |
+| Custom module | `PVsyst7.0_Data/ComposPV/PVmodules/Waaree_Energies_BiN-08-565.PAN` |
 
-If the database is missing → build `.PAN`/`.OND` files from the datasheets and document it.
+## Notes
+- The licence screen showed "LICENSED" but also "licence will expire soon, 0 days remaining" (28 Oct 2026). Check this before relying on PVsyst. Exported PDF reports may carry restrictions or a watermark.
+- The Waaree list in PVsyst's database holds only older WSMD models, so the BiN-08-565 `.PAN` was created from the datasheet.
+- No manufacturer-database problem for the inverter: SG250-HX is included.
 
 ## Simulation variants
-| Variant | Change | Specific yield | PR | Notes |
-|---|---|---|---|---|
-| VC0 | Base case | | | |
+| Variant | Change | Annual energy | Specific yield | PR | Notes |
+|---|---|---|---|---|---|
+| VC0 | Base: 20° tilt, no near shading, default losses, bifacial settings not yet defined | 7,041 MWh | 1,410 kWh/kWp | 0.852 | **Preliminary baseline.** Optimistic: no shading, soiling or measured losses, and bifacial gain not yet modelled |
+
+## Next
+- [ ] Bifacial system settings (albedo, pitch, height)
+- [ ] Row pitch and 3D near-shading scene
+- [ ] Soiling, LID, mismatch, ohmic and availability losses reviewed
+- [ ] P50/P90
+- [ ] Export report PDF and loss diagram

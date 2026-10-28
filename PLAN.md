@@ -17,7 +17,7 @@ Term-II exams: 2–4 Nov (no project work).
 - [x] Results cross-checked in `calcs/string_sizing.xlsx` (Excel and Python agree)
 
 ## Week 2 (12–18 Nov): PVsyst
-- [ ] Project, orientation and system set up in PVsyst
+- [x] Project, orientation and system set up in PVsyst (done 28 Oct; VC0 baseline run)
 - [ ] Row pitch and ground cover ratio chosen (shading vs land trade-off)
 - [ ] 3D near-shading scene
 - [ ] Simulation run; loss diagram, PR and specific yield recorded

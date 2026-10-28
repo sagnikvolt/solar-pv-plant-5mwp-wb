@@ -19,12 +19,13 @@ A complete preliminary design package for a 5 MWp ground-mounted, fixed-tilt sol
 | Module | Waaree ELITE BiN-08-565, N-type TOPCon bifacial (ALMM/DCR status to be verified) |
 | Inverter | 16 × Sungrow SG250HX (1500 V string inverter) |
 | Modules per string / no. of strings | 26 / 340 (8,840 modules) |
-| Tilt / azimuth / row pitch | TBD |
-| Annual GHI | 1,730 (PVGIS) / 1,669 (NASA POWER) kWh/m²/yr; Meteonorm TBD |
+| Tilt / azimuth / row pitch | 20° / 0° (south) / TBD |
+| Annual GHI | 1,574 (Meteonorm 8.1, used in PVsyst) / 1,669 (NASA POWER) / 1,730 (PVGIS) kWh/m²/yr |
+| Baseline energy (PVsyst VC0, no shading, preliminary) | 7,041 MWh/yr |
 | P50 energy yield | TBD MWh/yr |
 | P90 energy yield (1-year) | TBD MWh/yr |
-| Specific yield | TBD kWh/kWp/yr |
-| Performance ratio (PR) | TBD % |
+| Specific yield (baseline) | 1,410 kWh/kWp/yr |
+| Performance ratio (baseline) | 85.2% (will fall once shading and real losses are added) |
 | Cross-check vs SAM / PVGIS | TBD % / TBD % |
 | Capex / LCOE | TBD ₹ Cr / TBD ₹/kWh |
 | CO₂ avoided | TBD t/yr |
