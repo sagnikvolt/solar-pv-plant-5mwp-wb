@@ -25,16 +25,16 @@ Term-II exams: 2–4 Nov (no project work).
 - [x] Cross-checked with SAM and PVGIS; gap above 3% explained by irradiance source (`calcs/output/crosscheck_sam_pvgis.md`)
 
 ## Week 3 (19–25 Nov): electrical, drawings, economics (SDP781 on 23 Nov)
-- [ ] DC string and DC main cable sizing (voltage drop, ampacity, derating)
-- [ ] AC cable, inverter transformer and 33 kV evacuation concept
+- [x] DC string and DC main cable sizing (voltage drop, ampacity, derating)
+- [x] AC cable, inverter transformer and 33 kV evacuation concept
 - [ ] AutoCAD layout and SLD exported to PDF
-- [ ] BOQ, capex, LCOE, payback and CO₂ avoided
+- [x] BOQ, capex, LCOE, payback and CO₂ avoided (indicative; costs need a real benchmark)
 
 ## Week 4 (26–30 Nov): package and publish
-- [ ] 6–8 page PDF report in `report/`
+- [x] 6–8 page PDF report in `report/` (draft; AutoCAD drawings to be added)
 - [ ] README results table filled in; repo made public
-- [ ] 15–20 interview questions answered in my own words (`report/interview_qa.md`)
-- [ ] LinkedIn Projects entry and one post (loss diagram plus key numbers)
-- [ ] Two CV bullets
+- [ ] 15–20 interview questions: drafts written; rewrite in my own words (`report/interview_qa.md`)
+- [x] LinkedIn Projects entry and one post drafted in `linkedin/` (post after drawings)
+- [x] Two CV bullets drafted in `linkedin/`
 
 End-sem exams: 1, 3, 8, 10 and 14 Dec.

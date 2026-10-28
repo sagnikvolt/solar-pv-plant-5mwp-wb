@@ -12,3 +12,8 @@ Planned outline:
 Appendix: assumption log, PVsyst report
 
 Final file: `SPV5_Design_Report.pdf`
+
+
+## Contents
+- `5MWp_solar_design_report_DRAFT.pdf`: 7-page draft report (build: `python calcs/make_report.py` from `report.html`). Drawings sections are placeholders.
+- `interview_qa.md`: draft answers for the 20 questions; rewrite in your own words.

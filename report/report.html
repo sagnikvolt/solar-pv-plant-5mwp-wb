@@ -1,0 +1,108 @@
+<!doctype html><html><head><meta charset="utf-8"><title>5 MWp Solar PV Plant: Design and Energy Yield Assessment</title>
+<style>
+@page{size:A4;margin:18mm 16mm}
+body{font-family:"Helvetica Neue",Arial,sans-serif;font-size:10.2pt;line-height:1.42;color:#1d2530}
+h1{font-size:21pt;margin:0 0 4px}h2{font-size:14pt;margin:20px 0 6px;border-bottom:2px solid #e0a100;padding-bottom:3px;break-after:avoid}
+h3{font-size:11pt;margin:12px 0 4px;break-after:avoid}p{margin:5px 0}
+table{border-collapse:collapse;width:100%;margin:8px 0;font-size:9.2pt;break-inside:avoid}
+th,td{border:1px solid #c9d0d8;padding:3px 6px;text-align:left;vertical-align:top}th{background:#f1f4f7}
+img{max-width:100%;display:block;margin:8px auto;break-inside:avoid}
+.cap{font-size:8.6pt;color:#566;text-align:center;margin-top:-4px}
+.note{background:#fff7e0;border-left:4px solid #e0a100;padding:6px 10px;margin:8px 0;font-size:9.4pt;break-inside:avoid}
+.pb{break-before:page}.sub{color:#566;font-size:10pt}
+.ph{border:2px dashed #b7c0cb;padding:34px;text-align:center;color:#667;margin:10px 0}
+</style></head><body>
+
+<h1>5 MWp Ground-Mount Solar PV Plant<br>Design and Energy Yield Assessment</h1>
+<p class="sub">Resource site: Kolkata, West Bengal (22.57 °N, 88.36 °E) &nbsp;|&nbsp; Sagnik Kumar Nath, B.Tech Electrical Engineering, IEM Kolkata &nbsp;|&nbsp; <b>DRAFT, 28 Oct 2026</b></p>
+<div class="note"><b>Status:</b> preliminary desk design. No site survey, soil data or vendor quotes. Layout and single-line drawings (AutoCAD) are still to be added. Cost figures are indicative only.</div>
+
+<h2>1. Summary</h2>
+<table>
+<tr><th>Parameter</th><th>Value</th></tr>
+<tr><td>DC / AC capacity</td><td>4,994.6 kWp / 4,000 kW (DC/AC 1.249)</td></tr>
+<tr><td>Modules</td><td>8,840 × Waaree ELITE BiN-08-565 (565 Wp, N-type TOPCon, bifacial); ALMM/DCR status to be verified</td></tr>
+<tr><td>Inverters</td><td>16 × Sungrow SG250HX (1500 V string inverter)</td></tr>
+<tr><td>Strings</td><td>26 modules in series, 340 strings</td></tr>
+<tr><td>Orientation</td><td>Fixed tilt 20°, south, row pitch 8.0 m (GCR 58%)</td></tr>
+<tr><td>Energy (PVsyst)</td><td>7,078 MWh/yr; 1,417 kWh/kWp/yr; PR 85.6%</td></tr>
+<tr><td>P90 (1-year, assumed uncertainty 6.84%)</td><td>6,458 MWh/yr</td></tr>
+<tr><td>Energy at the 33 kV point (after AC-side losses of 2.28%)</td><td>6,917 MWh/yr</td></tr>
+<tr><td>CO₂ avoided, year 1</td><td>about 5,030 t (CEA average factor 0.727 t/MWh)</td></tr>
+<tr><td>Capex / LCOE</td><td>Indicative range ₹3.5 to 4.4 crore/MWp, LCOE ₹3.5 to 4.3/kWh (see section 8 for the limits)</td></tr>
+</table>
+
+<h2>2. Site and resource</h2>
+<p>The project uses Kolkata's climate and coordinates. Kolkata city has no 20 to 25 acre open plots, so the physical plot is still to be chosen on the metropolitan fringe; the weather is essentially the same within about 25 km. Record ambient temperatures from NASA POWER (2001 to 2025): minimum 3.4 °C (sets string Voc), maximum 46.9 °C (sets string Vmp).</p>
+<p>Three irradiance sources disagree by up to 10%. Meteonorm 8.1 (lowest) is used in PVsyst, which makes the yield estimate conservative, and the spread is the largest term in the uncertainty budget.</p>
+<img src="../showcase/images/irradiance_comparison.png" style="width:78%"><p class="cap">Figure 1. Annual GHI: Meteonorm 1,574, NASA POWER 1,669, PVGIS 1,730 kWh/m².</p>
+
+<h2>3. Equipment and string design</h2>
+<p>Modules are 565 Wp rather than 580 Wp because two 580 W strings would draw 26.36 A on one inverter MPPT, above its 26 A limit. The SG250HX has 12 MPPTs with two string inputs each, 600 to 1,500 V.</p>
+<p>The string length uses the cold limit: module Voc at 3.4 °C is 54.81 V, so at most 27 modules fit under 1,500 V. 27 modules leave only 3 V of margin, so 26 were chosen (Voc,max 1,425 V; Vmp range 960 to 1,206 V against the 600 V inverter minimum).</p>
+<table><tr><th>Check</th><th>Result</th></tr>
+<tr><td>Voc (cold) × 26 ≤ 1,500 V</td><td>1,425 V, pass</td></tr>
+<tr><td>Vmp (hot, 75.8 °C cell) × 26 ≥ 600 V</td><td>960 V, pass</td></tr>
+<tr><td>Vmp (cold) × 26 ≤ 1,500 V</td><td>1,206 V, pass</td></tr>
+<tr><td>Two strings on one MPPT ≤ 26 A</td><td>25.94 A, pass</td></tr></table>
+<img src="../showcase/images/string_design_summary.png" style="width:85%"><p class="cap">Figure 2. String design summary.</p>
+
+<h2 class="pb">4. Energy simulation (PVsyst 7.4)</h2>
+<p>Bifacial unlimited-sheds model with a 3D near-shading scene: 17 rows of 520 modules (2 modules in portrait, 4.58 m deep, 1.0 m lower edge). Ground albedo 0.25, bifaciality 80%, rear shading 5%, rear mismatch 10%, free-standing thermal model (Uc 29, Uv 0), soiling 3%, LID 0.5%, mismatch 2%, unavailability 1%.</p>
+<img src="../showcase/images/pvsyst_3d_scene_VC1.jpg" style="width:70%"><p class="cap">Figure 3. 3D shading scene (low-resolution working capture).</p>
+<h3>Row pitch</h3>
+<p>6.4 m is the minimum pitch with no shading from 9:00 to 15:00 on 21 December. A sweep of four pitches shows the energy gain falling off while land use keeps rising; 8.0 m was adopted. Footprints exclude roads, fencing and the substation.</p>
+<img src="../showcase/images/row_pitch_tradeoff.png" style="width:88%"><p class="cap">Figure 4. Energy and land use against row pitch.</p>
+<h3>Loss budget (adopted case, VC4)</h3>
+<table><tr><th>Loss</th><th>%</th><th>Loss</th><th>%</th></tr>
+<tr><td>Temperature</td><td>5.59</td><td>Inverter efficiency</td><td>1.61</td></tr>
+<tr><td>Soiling (assumed)</td><td>3.00</td><td>Inverter clipping</td><td>1.22</td></tr>
+<tr><td>Module and string mismatch</td><td>2.05</td><td>Unavailability</td><td>1.01</td></tr>
+<tr><td>IAM</td><td>2.01</td><td>DC wiring</td><td>0.93</td></tr>
+<tr><td>Near shading</td><td>1.75</td><td>LID</td><td>0.50</td></tr></table>
+<p>Bifacial gain is +4.4% (monofacial 6,712 vs bifacial 7,006 MWh at 7.0 m). Result: 7,078 MWh/yr, PR 85.65%.</p>
+<img src="../showcase/images/pvsyst_loss_diagram_VC4_pitch8m.png" style="width:92%"><p class="cap">Figure 5. PVsyst loss diagram, VC4 (raw export; right-hand labels are clipped).</p>
+
+<h2 class="pb">5. Uncertainty and cross-check</h2>
+<table><tr><th>Component</th><th>σ (%)</th></tr>
+<tr><td>Irradiance data source</td><td>5.0</td></tr><tr><td>Interannual variability</td><td>3.2</td></tr>
+<tr><td>Transposition and bifacial model</td><td>2.0</td></tr><tr><td>PV model</td><td>2.0</td></tr>
+<tr><td>Module data</td><td>1.5</td></tr><tr><td>Soiling</td><td>1.0</td></tr><tr><td>Availability</td><td>0.5</td></tr>
+<tr><td><b>Combined (root-sum-square)</b></td><td><b>6.84 (1-year), 6.13 (10-year)</b></td></tr></table>
+<p>P90 = P50 × (1 − 1.2816 σ) = 6,458 MWh/yr (1-year). <b>All σ values are my assumptions</b>, not measured.</p>
+<p><b>Cross-check.</b> NREL SAM (PVWatts v8 on PVGIS ERA5 data) and the PVGIS calculator were 4.6% and 6.6% above PVsyst's monofacial result once shading was removed, which is above the 3% target. Scaling SAM's irradiance to Meteonorm level reduced the gap to +0.9%, so the difference comes from the irradiance database, not the PV model. SAM and PVGIS share ERA5, so this check does not prove which database is right.</p>
+
+<h2>6. Electrical design</h2>
+<table><tr><th>Item</th><th>Design</th></tr>
+<tr><td>DC string cable</td><td>Copper H1Z2Z2-K; design current 1.25 × Isc × 1.10 = 18.9 A; derating 0.91 (temperature) × 0.80 (grouping); 4 mm² up to about 70 m, 6 mm² to 100 m, 10 mm² to 130 m (drop ≤ 1.0% at Imp)</td></tr>
+<tr><td>Inverter to transformer</td><td>Al XLPE, 240 mm², 3 single-core, 80 m, drop 0.48% at 180.5 A rated</td></tr>
+<tr><td>Transformers</td><td>2 × 2.5 MVA, 0.8/33 kV Dyn11, 8 inverters each</td></tr>
+<tr><td>33 kV evacuation</td><td>33 kV RMU with VCB and metering, then 3 km ACSR Dog overhead line (placeholder), 70 A, drop 0.30%</td></tr></table>
+<p>PVsyst does not model the AC side. Estimated AC-side losses are 161 MWh/yr (2.28%): cables 33.6, transformer load loss 70.1, transformer no-load 36.8, 33 kV line 20.9 MWh. The load-form factor (0.20) is an assumption. Net energy at the 33 kV point: 6,917 MWh/yr. Cable lengths are placeholders until the layout is drawn.</p>
+
+<h2 style="break-before:page">7. Drawings</h2>
+<div class="ph">Plant layout (AutoCAD): <i>to be added</i></div>
+<div class="ph">Single-line diagram (AutoCAD): <i>to be added</i></div>
+
+<h2>8. Economics and CO₂</h2>
+<p>Quantities come from the design (8,840 modules, 16 inverters, 2 transformers, 170 tables). Unit costs come from a published indicative guide (taypro.in, June 2026), which is a commercial source, not a regulator benchmark.</p>
+<table><tr><th>Case</th><th>Capex (₹ crore)</th><th>₹ crore/MWp</th><th>LCOE (₹/kWh)</th></tr>
+<tr><td>Low</td><td>17.7</td><td>3.54</td><td>3.52</td></tr>
+<tr><td>Base (25th percentile of ranges)</td><td>22.1</td><td>4.42</td><td>4.25</td></tr>
+<tr><td>High</td><td>35.4</td><td>7.08</td><td>6.47</td></tr></table>
+<p>Financial inputs: 10% discount rate, 25 years, 0.4%/yr degradation, O&amp;M ₹5 lakh/MWp/yr, inverter replacement in year 12, no tax or debt. At a tariff of ₹3.00/kWh the base case pays back in about 14 years (project IRR 4.8%).</p>
+<div class="note"><b>Does not reconcile with the market.</b> Even the Low case sits above recent auction tariffs of ₹2.3 to 3.6/kWh. A single 5 MWp site should cost more per kWh than a large auction winner, but probably not by this margin; the benchmark ranges are probably conservative. Quote these figures only as an indicative range until a CERC/SERC benchmark or an EPC quote is found.</div>
+<p><b>CO₂ avoided:</b> 0.727 tCO₂/MWh (CEA CO₂ Baseline Database v20.0, FY2023-24 average) gives about 5,030 t in year 1 (5,240 t with the combined-margin factor 0.757). The grid factor will fall over time.</p>
+
+<h2>9. Limitations</h2>
+<ul>
+<li>Preliminary design: no topographic survey, soil report, flood study or DISCOM feasibility; plot and 33 kV substation not fixed; land area not determined.</li>
+<li>Uncertainty (P50/P90) is based on assumed σ values.</li>
+<li>Electrical (module-string) shading and monthly soiling are not modelled; the monthly chart is distorted by random unavailability periods (annual total unaffected).</li>
+<li>PVsyst warns about unequal string counts across MPPT inputs (44 inputs carry 1 string, 148 carry 2); not yet resolved.</li>
+<li>Module ALMM/DCR status and datasheet PDFs not yet verified or saved.</li>
+<li>Economics are indicative and unreconciled with market tariffs.</li>
+<li>PVsyst academic licence; the licence bar read "0 days remaining" on 28 Oct 2026.</li>
+</ul>
+<p class="sub">All assumptions with sources are in <code>ASSUMPTIONS.md</code>; code and outputs are in <code>calcs/</code>. Repository: github.com/sagnikvolt/solar-pv-plant-5mwp-wb</p>
+</body></html>

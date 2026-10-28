@@ -15,7 +15,10 @@ Everything here is meant to be shown publicly. Items marked **PRELIMINARY** come
 | PVsyst simulation report, VC4 (8 pages) | `pvsyst_report_VC4_pitch8m_PRELIMINARY.pdf` | **PRELIMINARY** (current design) |
 | Row pitch trade-off chart | `images/row_pitch_tradeoff.png` | Final data, from the PVsyst sweep |
 
-Regenerate the two charts with `python calcs/make_showcase_charts.py`.
+| Draft design report (7 pages) | `../report/5MWp_solar_design_report_DRAFT.pdf` | DRAFT, drawings to be added |
+| LinkedIn entry, post, CV bullets | `../linkedin/README.md` | Drafts, post after drawings and repo public |
+
+Regenerate the charts with `python calcs/make_showcase_charts.py`.
 
 ## Still to capture
 - [ ] Clean loss diagram (re-export or redraw from the PVsyst report numbers)

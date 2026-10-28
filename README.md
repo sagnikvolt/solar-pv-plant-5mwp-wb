@@ -1,6 +1,6 @@
 # 5 MWp Solar PV Plant: Design & Energy Yield Assessment (West Bengal)
 
-> **Status: in progress.** Target completion is 30 Nov 2026. This README fills in as each stage is finished. Any number below marked *TBD* has not been calculated yet.
+> **Status: in progress (about 70%).** Done: site, equipment, strings, PVsyst yield and P50/P90, cross-check, cable sizing, indicative economics, draft 7-page report. Still to do: AutoCAD layout and single-line diagram, plot and substation choice. Target completion is 30 Nov 2026. Any number marked *TBD* has not been calculated yet.
 
 A complete preliminary design package for a 5 MWp ground-mounted, fixed-tilt solar PV plant at a real site in West Bengal, India. It is laid out the way a solar EPC or developer design team would prepare one: site and resource assessment, equipment selection, string sizing, a PVsyst energy-yield simulation with P50/P90, independent cross-checks, electrical sizing, drawings and a basic financial model.
 
@@ -27,8 +27,9 @@ A complete preliminary design package for a 5 MWp ground-mounted, fixed-tilt sol
 | Specific yield | 1,417 kWh/kWp/yr |
 | Performance ratio | 85.6% (bifacial gain of about 4.4% offsets shading, soiling and availability) |
 | Cross-check vs SAM / PVGIS | -4.6% / -6.6% as run; +0.9% vs SAM once scaled to Meteonorm irradiance (see `calcs/output/crosscheck_sam_pvgis.md`) |
-| Capex / LCOE | TBD ₹ Cr / TBD ₹/kWh |
-| CO₂ avoided | TBD t/yr |
+| Energy at 33 kV point | 6,917 MWh/yr (after 2.28% AC-side losses, `calcs/output/cable_sizing.md`) |
+| Capex / LCOE (indicative) | ₹3.5 to 4.4 crore/MWp, LCOE ₹3.5 to 4.3/kWh. Does not reconcile with auction tariffs; see `calcs/output/economics.md` |
+| CO₂ avoided | about 5,030 t/yr (CEA average factor 0.727 t/MWh) |
 
 ---
 
@@ -53,7 +54,9 @@ data/          site info, weather data comparison, equipment datasheets
 calcs/         string sizing (Python + Excel), later cable sizing & economics
 pvsyst/        PVsyst project files, exported reports, screenshots
 drawings/      layout and SLD (DWG + PDF)
-report/        final PDF report, interview Q&A
+report/        draft PDF report (report.html is its source), interview Q&A drafts
+linkedin/      LinkedIn Projects entry, post draft, CV bullets
+showcase/      images and PDFs meant for public posting
 ASSUMPTIONS.md assumption log (value, source, reason)
 PLAN.md        4-week work plan and checklist
 ```
@@ -69,11 +72,20 @@ python calcs/fetch_weather.py --lat 22.57 --lon 88.36    # PVGIS + NASA POWER da
 python calcs/weather_compare.py                          # irradiance cross-check
 python calcs/string_sizing.py                            # uses calcs/config/design_inputs.json
 python calcs/string_sizing.py --config calcs/config/example_inputs.json   # worked example
+python calcs/cable_sizing.py                            # cable sizing and AC-side losses
+python calcs/economics.py                               # BOQ scope, capex, LCOE, CO2 (needs cable_sizing first)
+python calcs/make_report.py                             # report/report.html to PDF (needs Playwright)
 python -m unittest discover calcs/tests
 ```
 
-No packages beyond the Python 3 standard library are required (the Excel version, `calcs/string_sizing.xlsx`, mirrors the script).
+The string sizing needs only the Python 3 standard library; the cross-check scripts need PySAM and requests, and the report build needs Playwright (the Excel version, `calcs/string_sizing.xlsx`, mirrors the script).
 
 ## Limitations
 
-*To be written as the study progresses* (for example: a preliminary design without a topographic survey or soil data, generic grid assumptions, and an academic PVsyst licence).
+- Preliminary design: no topographic survey, soil or flood data, and no DISCOM feasibility. The plot, land area and 33 kV substation are not fixed.
+- P50/P90 uses an assumed uncertainty budget, not measured values.
+- Costs are indicative and do not reconcile with market tariffs; quote them only as a range.
+- Module-string shading and monthly soiling are not modelled; PVsyst warns about unequal MPPT string counts.
+- Module ALMM/DCR status is unverified.
+- PVsyst is used under an academic licence.
+- Drawings are not yet included.
