@@ -1,0 +1,10 @@
+{
+  "lat": 22.57,
+  "lon": 88.36,
+  "elevation_m": 15.0,
+  "record_min_C": 3.43,
+  "record_min_date": "20130109",
+  "record_max_C": 46.92,
+  "record_max_date": "20240430",
+  "source": "NASA POWER daily T2M_MIN/T2M_MAX 2001-2025 (gridded; station extremes can be a little more extreme)"
+}

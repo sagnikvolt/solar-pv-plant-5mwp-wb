@@ -26,12 +26,13 @@ def main():
         vals = [r[col] for r in rows]
         if all(v.strip() for v in vals):
             totals[name] = sum(float(v) for v in vals)
-    if "Meteonorm" not in totals:
-        sys.exit("Fill at least the Meteonorm GHI column in " + os.path.relpath(CSV))
+    if not totals:
+        sys.exit("No complete GHI column found in " + os.path.relpath(CSV))
 
-    base = totals["Meteonorm"]
+    base_name = "Meteonorm" if "Meteonorm" in totals else next(iter(totals))
+    base = totals[base_name]
     lines = ["# Irradiance cross-check", "",
-             "| Source | Annual GHI (kWh/m²/yr) | Δ vs Meteonorm |", "|---|---|---|"]
+             f"| Source | Annual GHI (kWh/m²/yr) | Δ vs {base_name} |", "|---|---|---|"]
     for name, tot in totals.items():
         lines.append(f"| {name} | {tot:,.0f} | {100 * (tot - base) / base:+.1f}% |")
     lines += ["", "_Explain any difference above ~3% in the report (data period, satellite vs. "

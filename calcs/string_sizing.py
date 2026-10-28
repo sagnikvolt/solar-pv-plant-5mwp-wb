@@ -76,8 +76,16 @@ def size_strings(cfg):
     n_max_mppt = math.floor(inv["Vmppt_max_V"] / vmp_cold)
 
     n_chosen = d.get("modules_per_string_optional") or n_max_voltage
-    strings_per_mppt_max = math.floor(inv["Isc_max_per_MPPT_A"] / isc_design)
+    strings_per_mppt_isc = math.floor(inv["Isc_max_per_MPPT_A"] / isc_design)
+    connectors = inv.get("string_inputs_per_MPPT_optional")
+    strings_per_mppt_max = min(strings_per_mppt_isc, connectors) if connectors else strings_per_mppt_isc
     strings_per_inv_max = strings_per_mppt_max * inv["n_MPPT"]
+
+    # Operating current: strings paralleled on one MPPT must not exceed the MPPT's max input current
+    imp = m["Pmax_W"] / m["Vmp_V"]
+    imax_mppt = inv.get("Imax_operating_per_MPPT_A_optional")
+    imp_per_mppt = imp * strings_per_mppt_max
+    current_ok = True if imax_mppt is None else (imp * strings_per_mppt_max <= imax_mppt)
 
     string_kwp = n_chosen * m["Pmax_W"] / 1000.0
     n_strings = round(d["target_DC_kWp"] / string_kwp)
@@ -91,6 +99,7 @@ def size_strings(cfg):
         "Vmp_hot x N >= Vmppt_min": n_chosen * vmp_hot >= inv["Vmppt_min_V"],
         "Vmp_cold x N <= Vmppt_max": n_chosen * vmp_cold <= inv["Vmppt_max_V"],
         "Strings/inverter within MPPT current limit": strings_per_inv <= strings_per_inv_max,
+        "Imp x strings per MPPT <= MPPT max operating current": current_ok,
         "N within feasible range": n_min_mppt <= n_chosen <= n_max_voltage,
     }
 
@@ -112,6 +121,9 @@ def size_strings(cfg):
         "String_Vmp_hot_V": n_chosen * vmp_hot,
         "String_Vmp_cold_V": n_chosen * vmp_cold,
         "Strings_per_MPPT_max": strings_per_mppt_max,
+        "Imp_A": imp,
+        "Imp_all_strings_on_one_MPPT_A": imp_per_mppt,
+        "Imax_operating_per_MPPT_A": imax_mppt,
         "Strings_per_inverter_max": strings_per_inv_max,
         "String_kWp": string_kwp,
         "N_strings": n_strings,
@@ -157,7 +169,9 @@ def to_markdown(cfg, r):
         f"| DC capacity | {r['DC_kWp']:.1f} kWp |",
         f"| Inverters | {r['N_inverters']} × {inv['Pac_kW']} kW = {r['AC_kW']:.0f} kW |",
         f"| DC/AC ratio | {r['DC_AC_ratio']:.3f} |",
-        f"| Strings per inverter (max allowed) | {r['Strings_per_inverter']} ({r['Strings_per_inverter_max']}) |\n",
+        f"| Strings per inverter (max allowed) | {r['Strings_per_inverter']} ({r['Strings_per_inverter_max']}) |",
+        f"| Imp per string / all strings on one MPPT | {r['Imp_A']:.2f} A / {r['Imp_all_strings_on_one_MPPT_A']:.2f} A"
+        f" (limit {r['Imax_operating_per_MPPT_A']} A) |\n",
         "## Checks",
         "| Check | Result |", "|---|---|",
     ]

@@ -12,15 +12,15 @@ A complete preliminary design package for a 5 MWp ground-mounted, fixed-tilt sol
 
 | Parameter | Value |
 |---|---|
-| Site (district, coordinates) | TBD |
+| Site (resource location) | Kolkata, 22.57 °N, 88.36 °E (exact plot TBD) |
 | Land area | TBD |
-| DC capacity / AC capacity | 5.0 MWp / TBD |
-| DC/AC ratio | TBD |
-| Module (ALMM List-I) | TBD |
-| Inverter | TBD |
-| Modules per string / no. of strings | TBD |
+| DC capacity / AC capacity | 4,994.6 kWp / 4,000 kW (nominal, derates in heat) |
+| DC/AC ratio | 1.249 |
+| Module | Waaree ELITE BiN-08-565, N-type TOPCon bifacial (ALMM/DCR status to be verified) |
+| Inverter | 16 × Sungrow SG250HX (1500 V string inverter) |
+| Modules per string / no. of strings | 26 / 340 (8,840 modules) |
 | Tilt / azimuth / row pitch | TBD |
-| Annual GHI (Meteonorm) | TBD kWh/m²/yr |
+| Annual GHI | 1,730 (PVGIS) / 1,669 (NASA POWER) kWh/m²/yr; Meteonorm TBD |
 | P50 energy yield | TBD MWh/yr |
 | P90 energy yield (1-year) | TBD MWh/yr |
 | Specific yield | TBD kWh/kWp/yr |
@@ -64,12 +64,14 @@ PVsyst (IEM academic licence), NREL SAM, PVGIS, NASA POWER, AutoCAD (Autodesk Ed
 ## Run the calculations
 
 ```bash
-python calcs/string_sizing.py                          # uses calcs/config/design_inputs.json
+python calcs/fetch_weather.py --lat 22.57 --lon 88.36    # PVGIS + NASA POWER data
+python calcs/weather_compare.py                          # irradiance cross-check
+python calcs/string_sizing.py                            # uses calcs/config/design_inputs.json
 python calcs/string_sizing.py --config calcs/config/example_inputs.json   # worked example
 python -m unittest discover calcs/tests
 ```
 
-No packages beyond the Python 3 standard library are required.
+No packages beyond the Python 3 standard library are required (the Excel version, `calcs/string_sizing.xlsx`, mirrors the script).
 
 ## Limitations
 

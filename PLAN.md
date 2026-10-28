@@ -3,18 +3,18 @@
 Time budget: about 1–1.5 h on most evenings. Daily aptitude practice and exam preparation come first.
 
 ## Before 2 Nov
-- [ ] **PVsyst licence check:** licence type and version, whether the manufacturer database has Indian modules (Waaree, Vikram, Websol, Adani, Premier) and 1500 V inverters, and whether the test-report PDF carries a watermark. Save screenshots to `pvsyst/screenshots/`.
-- [ ] **Choose the site:** western WB (Purulia, Bankura or Paschim Medinipur) or South 24 Parganas near Falta. The site must be non-agricultural, about 20–25 acres, and near a 33 kV substation. Record the coordinates in `data/site.md`.
+- [x] ~~PVsyst licence check~~ skipped by decision (28 Oct); note any watermark when the first report is produced
+- [x] **Site chosen: Kolkata** (22.57 N, 88.36 E). Still open: exact plot and 33 kV substation (see `data/site.md`)
 
 Term-II exams: 2–4 Nov (no project work).
 
 ## Week 1 (5–11 Nov): site, weather, equipment, string sizing
-- [ ] Monthly GHI and temperature from Meteonorm, PVGIS and NASA POWER, entered in `data/weather/weather_comparison.csv`
-- [ ] Record minimum and design maximum temperatures added to ASSUMPTIONS.md
-- [ ] Module chosen (ALMM List-I check, datasheet in `data/datasheets/`)
-- [ ] Inverter chosen, with a justification paragraph (string vs central, DC/AC ratio)
-- [ ] `calcs/config/design_inputs.json` filled in and `python calcs/string_sizing.py` run
-- [ ] Results cross-checked in `calcs/string_sizing.xlsx`
+- [x] PVGIS and NASA POWER monthly GHI and temperature done (Meteonorm to come from PVsyst), entered in `data/weather/weather_comparison.csv`
+- [x] Record minimum and design maximum temperatures added to ASSUMPTIONS.md
+- [x] Module chosen: Waaree BiN-08-565. **Still to do: ALMM List-I check and save the PDF in `data/datasheets/`**
+- [x] Inverter chosen: Sungrow SG250HX. **Still to do: write your justification paragraph (string vs central, DC/AC ratio)**
+- [x] `calcs/config/design_inputs.json` filled in and string sizing run (all checks pass)
+- [x] Results cross-checked in `calcs/string_sizing.xlsx` (Excel and Python agree)
 
 ## Week 2 (12–18 Nov): PVsyst
 - [ ] Project, orientation and system set up in PVsyst

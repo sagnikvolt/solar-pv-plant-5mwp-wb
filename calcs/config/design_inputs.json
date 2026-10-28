@@ -1,35 +1,37 @@
 {
-  "_readme": "Fill every null from the chosen module/inverter datasheets and site data. Keys ending in _optional may stay null. Record sources in ASSUMPTIONS.md.",
+  "_readme": "Design inputs from manufacturer datasheets (see ASSUMPTIONS.md for sources). Keys ending in _optional may be null.",
   "module": {
-    "model": null,
-    "Pmax_W": null,
-    "Voc_V": null,
-    "Vmp_V": null,
-    "Isc_A": null,
-    "beta_Voc_pct_per_C": null,
+    "model": "Waaree ELITE BiN-08-565 (N-type TOPCon, bifacial, 144 half-cut cells)",
+    "Pmax_W": 565,
+    "Voc_V": 51.9,
+    "Vmp_V": 43.56,
+    "Isc_A": 13.75,
+    "beta_Voc_pct_per_C": -0.26,
     "beta_Vmp_pct_per_C_optional": null,
-    "gamma_Pmax_pct_per_C": null,
-    "alpha_Isc_pct_per_C": null,
-    "NOCT_C": null
+    "gamma_Pmax_pct_per_C": -0.3,
+    "alpha_Isc_pct_per_C": 0.046,
+    "NOCT_C": 43
   },
   "inverter": {
-    "model": null,
-    "Pac_kW": null,
-    "Vdc_max_V": null,
-    "Vmppt_min_V": null,
-    "Vmppt_max_V": null,
-    "n_MPPT": null,
-    "Isc_max_per_MPPT_A": null
+    "model": "Sungrow SG250HX (datasheet v1.22)",
+    "Pac_kW": 250,
+    "Vdc_max_V": 1500,
+    "Vmppt_min_V": 600,
+    "Vmppt_max_V": 1500,
+    "n_MPPT": 12,
+    "Isc_max_per_MPPT_A": 50,
+    "string_inputs_per_MPPT_optional": 2,
+    "Imax_operating_per_MPPT_A_optional": 26
   },
   "site": {
-    "name": null,
-    "T_amb_record_min_C": null,
-    "T_amb_design_max_C": null
+    "name": "Kolkata, West Bengal (22.57 N, 88.36 E)",
+    "T_amb_record_min_C": 3.4,
+    "T_amb_design_max_C": 47
   },
   "design": {
     "target_DC_kWp": 5000,
     "target_DC_AC_ratio": 1.25,
-    "bifacial_rear_gain_frac": 0.0,
-    "modules_per_string_optional": null
+    "bifacial_rear_gain_frac": 0.1,
+    "modules_per_string_optional": 26
   }
 }
