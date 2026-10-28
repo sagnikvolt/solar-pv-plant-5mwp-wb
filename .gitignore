@@ -17,3 +17,7 @@ __pycache__/
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# PVsyst scratch
+PVsyst7.0_Data/UserRecycleBin/
+PVsyst7.0_Data/UserBatch/
