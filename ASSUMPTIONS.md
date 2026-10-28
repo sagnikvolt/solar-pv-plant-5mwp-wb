@@ -16,7 +16,7 @@ Every design input that isn't a direct measurement goes here. Each row needs a *
 | 10 | Inverter | Model | Sungrow SG250HX | Sungrow datasheet v1.22 (© 2019; see SOURCES.md) | 1500 V string inverter, 12 MPPTs, 250 kVA at 30 °C. **Derates to 225 kVA at 40 °C and 200 kVA at 50 °C**: PVsyst must model this for Kolkata summers | |
 | 11 | Inverter | Limits used | Vdc max 1500 V; MPPT 600–1500 V; 2 string inputs per MPPT; 26 A operating and 50 A Isc per MPPT | Same datasheet | Newer datasheet revisions may state a lower MPPT minimum voltage; 600 V is conservative | |
 | 12 | Design | Cell temperature model | Tcell = Tamb + (NOCT − 20)/800 × 1000 | IEC 61215 NOCT convention | Used for hot-condition Vmp and Isc (75.8 °C) | |
-| 13 | Design | Vmp temperature coefficient | γ(Pmax) = −0.30 %/°C used as β(Vmp) | Common approximation | Slightly conservative for the minimum string length | |
+| 13 | Design | Vmp temperature coefficient | γ(Pmax) = −0.30 %/°C used as β(Vmp) | Common approximation | PVsyst's model derives −0.33 %/°C, so −0.30 slightly overstates hot Vmp. No effect on the design: the minimum string is 17 modules and 26 are used | |
 | 14 | Design | String length | 26 modules (maximum allowed is 27) | `calcs/output/` | At 27, string Voc reaches 1,497 V, only 3 V below the 1,500 V limit, so one module was dropped for a 5% margin. See `iteration1_580W_27mod_FAILED.md` | Iteration 2 |
 | 15 | Design | Module class | 565 W instead of 580 W | `calcs/output/` | With the 580 W class, two strings on one MPPT draw 26.36 A, above the inverter's 26 A limit. The 565 W class gives 25.94 A | Iteration 2 |
 | 16 | Design | Bifacial rear gain (current only) | 10% | Engineering assumption | Conservative input for current checks only; PVsyst computes the real gain | |
