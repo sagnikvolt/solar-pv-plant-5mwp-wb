@@ -6,7 +6,7 @@ so they combine as the root sum of squares (RSS).
 """
 import math, json, sys
 
-P50_MWH = float(sys.argv[1]) if len(sys.argv) > 1 else 7006.164   # PVsyst VC1 annual E_Grid
+P50_MWH = float(sys.argv[1]) if len(sys.argv) > 1 else 7078.053   # PVsyst VC4 (8.0 m pitch) annual E_Grid
 Z90 = 1.2816  # one-sided 90% exceedance
 
 # name: (sigma %, is interannual)
@@ -37,7 +37,7 @@ for label, years in (("1-year", 1), ("10-year", 10)):
     rows.append((label, sig, p90, p90 / P50_MWH))
 
 out = ["# P50 / P90 energy estimate (preliminary)", "",
-       f"P50 = PVsyst variant VC1 annual energy injected = **{P50_MWH:,.0f} MWh/yr**", "",
+       f"P50 = PVsyst variant VC4 (8.0 m pitch) annual energy injected = **{P50_MWH:,.0f} MWh/yr**", "",
        "| Uncertainty component | σ (%) |", "|---|---|"]
 for name, (s, _) in BUDGET.items():
     out.append(f"| {name} | {s:.1f} |")

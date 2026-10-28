@@ -10,17 +10,19 @@ Everything here is meant to be shown publicly. Items marked **PRELIMINARY** come
 | PVsyst simulation report, VC0 baseline (6 pages) | `pvsyst_report_VC0_baseline_PRELIMINARY.pdf` | **PRELIMINARY**, superseded by VC1 |
 | PVsyst loss diagram, VC1 (bifacial, shading, soiling) | `images/pvsyst_loss_diagram_VC1_bifacial_shaded.png` | **PRELIMINARY.** Raw export clips edges, and its title still says "Base case" (renamed afterwards): redo for the final |
 | 3D shading scene, 17 rows, 8,840 modules | `images/pvsyst_3d_scene_VC1.jpg` | Working capture, low resolution (876×589) |
-| PVsyst simulation report, VC1 (8 pages) | `pvsyst_report_VC1_bifacial_shaded_PRELIMINARY.pdf` | **PRELIMINARY** |
+| PVsyst simulation report, VC1 (8 pages) | `pvsyst_report_VC1_bifacial_shaded_PRELIMINARY.pdf` | **PRELIMINARY**, superseded by VC4 |
+| PVsyst loss diagram, VC4 (adopted 8.0 m pitch) | `images/pvsyst_loss_diagram_VC4_pitch8m.png` | **PRELIMINARY.** Raw export clips right-hand labels |
+| PVsyst simulation report, VC4 (8 pages) | `pvsyst_report_VC4_pitch8m_PRELIMINARY.pdf` | **PRELIMINARY** (current design) |
+| Row pitch trade-off chart | `images/row_pitch_tradeoff.png` | Final data, from the PVsyst sweep |
 
 Regenerate the two charts with `python calcs/make_showcase_charts.py`.
 
 ## Still to capture
-- [ ] Final loss diagram after 3D shading, soiling and the loss review
+- [ ] Clean loss diagram (re-export or redraw from the PVsyst report numbers)
 - [ ] PVsyst results dashboard (monthly energy, PR)
 - [ ] System overview screenshot
 - [ ] Final PVsyst report PDF with P50/P90
 - [ ] Plant layout and single-line diagram (PDF/PNG from AutoCAD)
-- [ ] SAM / PVGIS cross-check chart
 - [ ] LinkedIn post cover image (loss diagram plus key numbers)
 
 ## Honest caveats to carry into any post

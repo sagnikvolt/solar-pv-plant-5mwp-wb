@@ -2,6 +2,7 @@
 Build LinkedIn-ready charts from the repo's own data (no hand-typed numbers).
   showcase/images/irradiance_comparison.png : monthly GHI, Meteonorm vs PVGIS vs NASA POWER
   showcase/images/string_design_summary.png : string sizing results card (from design_inputs.json)
+  showcase/images/row_pitch_tradeoff.png    : energy vs land for 4 row pitches (from calcs/output/pitch_sweep.md)
 Usage: python calcs/make_showcase_charts.py
 """
 import csv
@@ -51,6 +52,43 @@ def irradiance():
     plt.close(fig)
 
 
+def pitch_chart():
+    rows = []
+    for line in open(os.path.join(ROOT, "calcs", "output", "pitch_sweep.md"), encoding="utf-8"):
+        c = [x.strip() for x in line.strip().strip("|").split("|")]
+        try:
+            rows.append((float(c[0]), float(c[3]), float(c[6])))
+        except (ValueError, IndexError):
+            continue
+    pitch = [r[0] for r in rows]
+    en = [r[1] for r in rows]
+    ha = [r[2] for r in rows]
+    fig, (ax, ax2) = plt.subplots(1, 2, figsize=(10, 5.6), dpi=200, gridspec_kw={"width_ratios": [1.25, 1]})
+    labels = [f"{p:.1f} m" for p in pitch]
+    cols = ["#0f766e" if p == 8.0 else "#94a3b8" for p in pitch]
+    bars = ax.bar(labels, en, color=cols, width=0.6)
+    ax.set_ylim(6700, 7200)
+    ax.set_ylabel("Annual energy (MWh), axis starts at 6,700", color=MUTED)
+    for b_, e in zip(bars, en):
+        ax.text(b_.get_x() + b_.get_width() / 2, e + 6, f"{e:,.0f}", ha="center", fontsize=11, fontweight="bold", color=INK)
+    ax.set_xlabel("Row pitch", color=MUTED)
+    cols2 = ["#b45309" if p == 8.0 else "#fcd9a8" for p in pitch]
+    bars2 = ax2.bar(labels, ha, color=cols2, width=0.6)
+    ax2.set_ylim(0, 5)
+    ax2.set_ylabel("Array footprint (ha)", color=MUTED)
+    ax2.set_xlabel("Row pitch", color=MUTED)
+    for b_, h in zip(bars2, ha):
+        ax2.text(b_.get_x() + b_.get_width() / 2, h + 0.07, f"{h:.2f}", ha="center", fontsize=11, fontweight="bold", color=INK)
+    ax.grid(axis="y", alpha=.2)
+    ax2.grid(axis="y", alpha=.2)
+    fig.suptitle("Row pitch: more energy, but more land", x=0.06, ha="left", fontsize=17, fontweight="bold", color=INK)
+    fig.text(0.06, 0.885, "Bifacial 20° fixed tilt, Kolkata. Gains flatten above 8 m, so 8.0 m (highlighted) is adopted.", fontsize=10.5, color=MUTED)
+    fig.text(0.06, 0.01, "PVsyst 7.4 simulations VC3, VC1, VC4, VC5. Footprint excludes roads, fencing and substation. Preliminary.", fontsize=8, color=MUTED)
+    fig.tight_layout(rect=(0, 0.03, 1, 0.87))
+    fig.savefig(os.path.join(OUT, "row_pitch_tradeoff.png"))
+    plt.close(fig)
+
+
 def string_card():
     cfg = load_config(os.path.join(ROOT, "calcs", "config", "design_inputs.json"))
     r = size_strings(cfg)
@@ -88,4 +126,5 @@ def string_card():
 
 irradiance()
 string_card()
+pitch_chart()
 print("saved", sorted(os.listdir(OUT)))

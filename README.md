@@ -19,14 +19,14 @@ A complete preliminary design package for a 5 MWp ground-mounted, fixed-tilt sol
 | Module | Waaree ELITE BiN-08-565, N-type TOPCon bifacial (ALMM/DCR status to be verified) |
 | Inverter | 16 × Sungrow SG250HX (1500 V string inverter) |
 | Modules per string / no. of strings | 26 / 340 (8,840 modules) |
-| Tilt / azimuth / row pitch | 20° / 0° (south) / 7.0 m (GCR 65%) |
+| Tilt / azimuth / row pitch | 20° / 0° (south) / 8.0 m (GCR 58%), chosen from a 4-pitch sweep |
 | Annual GHI | 1,574 (Meteonorm 8.1, used in PVsyst) / 1,669 (NASA POWER) / 1,730 (PVGIS) kWh/m²/yr |
-| Energy, PVsyst VC1 (bifacial, 3D shading, losses; preliminary) | 7,006 MWh/yr |
-| P50 energy yield | 7,006 MWh/yr (preliminary) |
-| P90 energy yield (1-year) | 6,392 MWh/yr (assumed uncertainty budget) |
-| Specific yield | 1,403 kWh/kWp/yr |
-| Performance ratio | 84.8% (bifacial gain offsets shading, soiling and availability; see `pvsyst/README.md`) |
-| Cross-check vs SAM / PVGIS | TBD % / TBD % |
+| Energy, PVsyst VC4 (bifacial, 3D shading, losses; preliminary) | 7,078 MWh/yr |
+| P50 energy yield | 7,078 MWh/yr (preliminary) |
+| P90 energy yield (1-year) | 6,458 MWh/yr (assumed uncertainty budget) |
+| Specific yield | 1,417 kWh/kWp/yr |
+| Performance ratio | 85.6% (bifacial gain of about 4.4% offsets shading, soiling and availability) |
+| Cross-check vs SAM / PVGIS | -4.6% / -6.6% as run; +0.9% vs SAM once scaled to Meteonorm irradiance (see `calcs/output/crosscheck_sam_pvgis.md`) |
 | Capex / LCOE | TBD ₹ Cr / TBD ₹/kWh |
 | CO₂ avoided | TBD t/yr |
 
