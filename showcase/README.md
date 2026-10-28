@@ -15,6 +15,7 @@ Everything here is meant to be shown publicly. Items marked **PRELIMINARY** come
 | PVsyst simulation report, VC4 (8 pages) | `pvsyst_report_VC4_pitch8m_PRELIMINARY.pdf` | **PRELIMINARY** (current design) |
 | Row pitch trade-off chart | `images/row_pitch_tradeoff.png` | Final data, from the PVsyst sweep |
 
+| Proof-of-work screenshots (PVsyst project window, results dashboard, 3D scene, AutoCAD layout) | `proof/*.png` | Real screenshots, 28 Oct 2026; account name blurred |
 | Plant layout drawing | `../drawings/SPV5-DWG-01-Layout-R0.png` / `.pdf` | R0, schematic |
 | Single-line diagram | `../drawings/SPV5-DWG-02-SLD-R0.png` / `.pdf` | R0, schematic |
 | Loss steps chart (clean, VC4) | `images/loss_steps_VC4_clean.png` | Redrawn from the PVsyst report numbers; preliminary |

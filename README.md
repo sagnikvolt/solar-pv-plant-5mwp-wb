@@ -15,6 +15,22 @@ This project answers those questions for a **5 megawatt solar plant using Kolkat
 
 ![How the design was built](showcase/images/workflow_overview.png)
 
+## Proof of work: real software screenshots
+
+The banner above is an AI-generated illustration. The four images below are **screenshots taken on 28 Oct 2026 from the actual software** used for this project (the project files are in this repo, so you can open them yourself).
+
+**PVsyst 7.4: project window, final design (variant VC4)**: 7,078 MWh/yr, 1,417 kWh/kWp/yr, PR 0.856.
+![PVsyst project window](showcase/proof/proof_pvsyst_project_VC4.png)
+
+**PVsyst 7.4: results dashboard (VC4)**: BiN-08-565 modules, SG250-HX inverters, 4,995 kWp, 192 MPPT inputs, monthly PR. (The dip in June is a random unavailability period in the simulation; the annual total is unaffected.)
+![PVsyst results dashboard](showcase/proof/proof_pvsyst_results_dashboard_VC4.png)
+
+**PVsyst 7.4: 3D shading scene**: 17 rows, 8,840 modules, 22,836 m² active area.
+![PVsyst 3D scene](showcase/proof/proof_pvsyst_3d_shading_scene_VC4.png)
+
+**AutoCAD 2027 (Autodesk Education licence): the plant layout drawing.** The title bar reads "EDUCATION (NON COMMERCIAL)". The drawing geometry was generated with a Python script, then opened and saved as DWG in AutoCAD. My account name is blurred.
+![AutoCAD layout drawing](showcase/proof/proof_autocad_layout_drawing.png)
+
 **Author:** Sagnik Kumar Nath, B.Tech Electrical Engineering, IEM Kolkata (2027)
 
 > **Status:** complete as a preliminary design (target date 30 Nov 2026). Open items: plot and substation choice, confirming the module's ALMM/DCR listing, and a practising engineer's review. Every limitation is listed under [Limitations](#limitations).
