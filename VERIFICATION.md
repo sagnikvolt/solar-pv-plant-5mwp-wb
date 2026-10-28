@@ -33,6 +33,6 @@ Checked on 28 Oct 2026. Status key: **Verified** = matched to a manufacturer or 
 | Docs vs outputs | README, report, LinkedIn draft and interview Q&A quote the same headline numbers as `calcs/output/` ✓ |
 
 ## Not verifiable here
-- PVsyst's own simulation output was read from the saved reports, not independently re-run; the SAM/PVGIS cross-check (`calcs/output/crosscheck_sam_pvgis.md`) is the independent test (-4.6% / -6.6% as run).
+- PVsyst's own simulation output was read from the saved reports, not independently re-run; the SAM/PVGIS cross-check (`calcs/output/crosscheck_sam_pvgis.md`) is the independent test (PVsyst 4.6% / 6.6% below SAM / PVGIS as run).
 - Datasheet PDFs are not saved in `data/datasheets/` (the workspace cannot download from those hosts). Download them from the links in `SOURCES.md`.
 - Drawings are schematic and have not been reviewed by a practising engineer.

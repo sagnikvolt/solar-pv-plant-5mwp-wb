@@ -13,7 +13,7 @@ Edit into your own voice. Post only after the repo is public (about 30 Nov). Do 
 Designed a 5 MWp fixed-tilt, bifacial ground-mount solar plant using Kolkata's climate data, the way an EPC design team would prepare a preliminary package.
 - Selected 565 Wp N-type TOPCon bifacial modules and 250 kW string inverters; sized strings against record temperatures (26 modules per string, 340 strings, DC/AC 1.25) with a Python tool and Excel version.
 - Simulated in PVsyst with a 3D shading scene and a row-pitch sweep (6.4 to 9.0 m): 7,078 MWh/yr, 1,417 kWh/kWp, PR 85.6%; P90 6,458 MWh/yr from an assumed uncertainty budget.
-- Cross-checked against NREL SAM and PVGIS; the 4.6% gap came from the irradiance database, and fell to +0.9% after scaling to the same irradiance.
+- Cross-checked against NREL SAM and PVGIS; the 4.6% gap came from the irradiance database, and fell to 0.9% after scaling to the same irradiance.
 - Sized DC and AC cables, transformers and the 33 kV connection concept; produced a plant layout and single-line diagram (generated in Python, saved as DWG in AutoCAD); estimated about 5,000 t CO2 avoided per year.
 - Everything is documented with an assumption log. Preliminary design: no site survey, indicative costs.
 
@@ -27,7 +27,7 @@ Designed a 5 MWp fixed-tilt, bifacial ground-mount solar plant using Kolkata's c
 >
 > Three things I learned:
 > 1. Row spacing is a trade-off, not a number. Going from 6.4 m to 9.0 m pitch added about 2.6% energy but needed 39% more land. I picked 8.0 m.
-> 2. Different weather databases disagree. Kolkata's yearly irradiation is 1,574 (Meteonorm), 1,669 (NASA POWER) or 1,730 (PVGIS) kWh/m². My SAM check was 4.6% above PVsyst until I scaled it to the same irradiance, then +0.9%. The model was fine; the data source wasn't.
+> 2. Different weather databases disagree. Kolkata's yearly irradiation is 1,574 (Meteonorm), 1,669 (NASA POWER) or 1,730 (PVGIS) kWh/m². PVsyst came out 4.6% below my SAM check until I scaled SAM to the same irradiance; then they were within 1%. The model was fine; the data source wasn't.
 > 3. String sizing is set by the coldest morning. At 3.4 °C, 27 modules of my first module choice reached 1,497 V, just 3 V under the 1,500 V limit. With the final module 27 would still be only 20 V under, so I used 26 for a 5% margin.
 >
 > Result: 7,078 MWh/yr, PR 85.6%, P90 6,458 MWh/yr (assuming a 6.8% uncertainty). Layout and single-line diagram are in the repo (schematic for now).

@@ -36,7 +36,7 @@ PVsyst's quick optimisation put 20° within 0.1% of the best transposition (30°
 Annual GHI at Kolkata: Meteonorm 1,574, NASA POWER 1,669, PVGIS 1,730 kWh/m². They use different satellite/reanalysis sources and periods. I used Meteonorm because it is the lowest, so the estimate is conservative, and it is PVsyst's native source. The spread of up to 10% is why the data source is the largest term in the P90 budget.
 
 **12. How did your PVsyst result compare with SAM? What caused the difference?**
-SAM and PVGIS were 4.6% and 6.6% above PVsyst's monofacial case after removing shading. Scaling SAM's irradiance to the Meteonorm level brought the gap to +0.9%, so the gap is the irradiance database, not the model. Caveat: SAM and PVGIS both use ERA5, so they don't independently validate the irradiance choice.
+PVsyst's monofacial case came out 4.6% and 6.6% below SAM and PVGIS after removing shading. Scaling SAM's irradiance to the Meteonorm level brought the gap to 0.9%, so the gap is the irradiance database, not the model. Caveat: SAM and PVGIS both use ERA5, so they don't independently validate the irradiance choice.
 
 **13. How do you size a DC string cable? Why use 1.25 × Isc?**
 Design current = 1.25 × Isc (the safety factor for irradiance above 1,000 W/m²) × 1.10 for bifacial rear gain = 18.9 A. Then derate for temperature (0.91) and grouping (0.80), choose the cross-section that carries it, and check voltage drop. Result: 4 mm² copper up to about 70 m.

@@ -14,7 +14,7 @@
 
 **Is the module ALMM/DCR compliant?** Not confirmed for this exact model. Check the MNRE ALMM list before claiming it.
 
-**How reliable are the P90 numbers?** They are only as good as the assumed σ values, which I chose. The independent check is the SAM/PVGIS comparison, which agrees to +0.9% once irradiance is matched.
+**How reliable are the P90 numbers?** They are only as good as the assumed σ values, which I chose. The independent check is the SAM/PVGIS comparison, which agrees within 0.9% once irradiance is matched.
 
 **Are the costs real?** No. They are indicative ranges (₹3.5 to 5.5 crore/MWp, base 4.4). The CTUIL benchmark of ₹3.5 crore/MW matches the low end. LCOE is not comparable with large-project auction tariffs.
 

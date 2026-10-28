@@ -71,7 +71,7 @@ img{max-width:100%;display:block;margin:8px auto;break-inside:avoid}
 <tr><td>Module data</td><td>1.5</td></tr><tr><td>Soiling</td><td>1.0</td></tr><tr><td>Availability</td><td>0.5</td></tr>
 <tr><td><b>Combined (root-sum-square)</b></td><td><b>6.84 (1-year), 6.13 (10-year)</b></td></tr></table>
 <p>P90 = P50 × (1 − 1.2816 σ) = 6,458 MWh/yr (1-year). <b>All σ values are my assumptions</b>, not measured.</p>
-<p><b>Cross-check.</b> NREL SAM (PVWatts v8 on PVGIS ERA5 data) and the PVGIS calculator were 4.6% and 6.6% above PVsyst's monofacial result once shading was removed, which is above the 3% target. Scaling SAM's irradiance to Meteonorm level reduced the gap to +0.9%, so the difference comes from the irradiance database, not the PV model. SAM and PVGIS share ERA5, so this check does not prove which database is right.</p>
+<p><b>Cross-check.</b> NREL SAM (PVWatts v8 on PVGIS ERA5 data) and the PVGIS calculator gave results that were higher than PVsyst's monofacial result (PVsyst came out 4.6% and 6.6% below them) once shading was removed, which is above the 3% target. Scaling SAM's irradiance to Meteonorm level reduced the gap to 0.9% (PVsyst 0.9% above SAM), so the difference comes from the irradiance database, not the PV model. SAM and PVGIS share ERA5, so this check does not prove which database is right.</p>
 
 <h2>6. Electrical design</h2>
 <table><tr><th>Item</th><th>Design</th></tr>

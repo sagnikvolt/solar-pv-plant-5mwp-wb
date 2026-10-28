@@ -39,7 +39,7 @@ This project answers those questions for a **5 megawatt solar plant using Kolkat
 | P90 energy yield (1-year) | 6,458 MWh/yr (assumed uncertainty budget) |
 | Specific yield | 1,417 kWh/kWp/yr |
 | Performance ratio | 85.6% (bifacial gain of about 4.4% offsets shading, soiling and availability) |
-| Cross-check vs SAM / PVGIS | -4.6% / -6.6% as run; +0.9% vs SAM once scaled to Meteonorm irradiance (see `calcs/output/crosscheck_sam_pvgis.md`) |
+| Cross-check vs SAM / PVGIS | PVsyst is 4.6% / 6.6% below SAM / PVGIS as run; within 0.9% of SAM once scaled to Meteonorm irradiance (see `calcs/output/crosscheck_sam_pvgis.md`) |
 | Energy at 33 kV point | 6,917 MWh/yr (after 2.28% AC-side losses, `calcs/output/cable_sizing.md`) |
 | Capex / LCOE (indicative) | ₹3.5 to 4.4 crore/MWp, LCOE ₹3.5 to 4.3/kWh. Capex cross-checked against the CTUIL benchmark (₹3.5 cr/MW); see `calcs/output/economics.md` and `VERIFICATION.md` |
 | CO₂ avoided | about 5,030 t/yr (CEA average factor 0.727 t/MWh) |

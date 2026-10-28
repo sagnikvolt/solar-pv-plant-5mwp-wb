@@ -68,7 +68,7 @@ Files: `calcs/p50_p90.py`, `calcs/output/p50_p90.md`.
 
 ## Step 7. Check the answer independently
 
-I re-ran the plant in SAM and compared it with PVGIS's own estimate. As first run they were 4.6% and 6.6% below PVsyst, mainly because they use different sunlight data; once SAM uses the same irradiance, it agrees with PVsyst within +0.9%.
+I re-ran the plant in SAM and compared it with PVGIS's own estimate. As first run, PVsyst's monofacial result came out 4.6% and 6.6% below them, mainly because they use different sunlight data; once SAM uses the same irradiance, the two agree within 0.9%.
 
 Files: `calcs/crosscheck_sam.py`, `calcs/output/crosscheck_sam_pvgis.md`.
 
