@@ -1,10 +1,23 @@
-# 5 MWp Solar PV Plant: Design & Energy Yield Assessment (West Bengal)
+# 5 MWp Solar Power Plant: Design and Energy Yield Study (Kolkata, West Bengal)
 
-> **Status: in progress (about 85%).** Done: site, equipment, strings, PVsyst yield and P50/P90, cross-check, cable sizing, indicative economics, layout and single-line drawings, draft 8-page report. Still to do: plot and substation choice, confirming module ALMM/DCR status, my own rewrite of the interview answers. Target completion is 30 Nov 2026. Any number marked *TBD* has not been calculated yet.
+![Illustration of a 5 MWp solar plant at sunset](showcase/images/hero_banner_chatgpt.png)
+*AI-generated illustration (ChatGPT) for decoration. All charts, drawings and numbers below come from this project's own calculations and PVsyst.*
 
-A complete preliminary design package for a 5 MWp ground-mounted, fixed-tilt solar PV plant at a real site in West Bengal, India. It is laid out the way a solar EPC or developer design team would prepare one: site and resource assessment, equipment selection, string sizing, a PVsyst energy-yield simulation with P50/P90, independent cross-checks, electrical sizing, drawings and a basic financial model.
+## What is this project, in plain words?
+
+A solar power plant turns sunlight into electricity. Before anyone builds one, engineers have to answer: *how many panels, how should they be wired, how far apart should the rows be, and how much electricity will it really produce in a year?*
+
+This project answers those questions for a **5 megawatt solar plant using Kolkata's climate**. It is a **student design study**, not a plant that was built or bid for. I worked through the full chain a solar design team follows: weather data, equipment choice, wiring, a one-year energy simulation, an independent cross-check, electrical design, drawings and a rough cost estimate.
+
+**The answer in one line:** 8,840 panels would deliver about **6,900 MWh of electricity per year**, and avoid about **5,000 tonnes of CO₂ a year**.
+
+**New here? Start with the illustrated [step-by-step walkthrough](docs/WALKTHROUGH.md).**
+
+![How the design was built](showcase/images/workflow_overview.png)
 
 **Author:** Sagnik Kumar Nath, B.Tech Electrical Engineering, IEM Kolkata (2027)
+
+> **Status:** complete as a preliminary design (target date 30 Nov 2026). Open items: plot and substation choice, confirming the module's ALMM/DCR listing, and a practising engineer's review. Every limitation is listed under [Limitations](#limitations).
 
 ---
 
