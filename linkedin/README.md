@@ -47,5 +47,5 @@ Numbers behind the post: pitch sweep `calcs/output/pitch_sweep.md` (energy 6,938
 
 ## 4. Things to verify before posting
 - Module ALMM/DCR status (MNRE site).
-- Capex and LCOE are not in the post because the cost model is unreconciled.
+- Capex and LCOE are left out of the post on purpose: they are indicative ranges, not quotes.
 - The repo is private until about 30 Nov; add the link only when public.

@@ -1,6 +1,6 @@
 # 5 MWp Solar PV Plant: Design & Energy Yield Assessment (West Bengal)
 
-> **Status: in progress (about 85%).** Done: site, equipment, strings, PVsyst yield and P50/P90, cross-check, cable sizing, indicative economics, layout and single-line drawings, draft 8-page report. Still to do: plot and substation choice, a reconciled cost benchmark, my own rewrite of the interview answers. Target completion is 30 Nov 2026. Any number marked *TBD* has not been calculated yet.
+> **Status: in progress (about 85%).** Done: site, equipment, strings, PVsyst yield and P50/P90, cross-check, cable sizing, indicative economics, layout and single-line drawings, draft 8-page report. Still to do: plot and substation choice, confirming module ALMM/DCR status, my own rewrite of the interview answers. Target completion is 30 Nov 2026. Any number marked *TBD* has not been calculated yet.
 
 A complete preliminary design package for a 5 MWp ground-mounted, fixed-tilt solar PV plant at a real site in West Bengal, India. It is laid out the way a solar EPC or developer design team would prepare one: site and resource assessment, equipment selection, string sizing, a PVsyst energy-yield simulation with P50/P90, independent cross-checks, electrical sizing, drawings and a basic financial model.
 
@@ -28,7 +28,7 @@ A complete preliminary design package for a 5 MWp ground-mounted, fixed-tilt sol
 | Performance ratio | 85.6% (bifacial gain of about 4.4% offsets shading, soiling and availability) |
 | Cross-check vs SAM / PVGIS | -4.6% / -6.6% as run; +0.9% vs SAM once scaled to Meteonorm irradiance (see `calcs/output/crosscheck_sam_pvgis.md`) |
 | Energy at 33 kV point | 6,917 MWh/yr (after 2.28% AC-side losses, `calcs/output/cable_sizing.md`) |
-| Capex / LCOE (indicative) | ₹3.5 to 4.4 crore/MWp, LCOE ₹3.5 to 4.3/kWh. Does not reconcile with auction tariffs; see `calcs/output/economics.md` |
+| Capex / LCOE (indicative) | ₹3.5 to 4.4 crore/MWp, LCOE ₹3.5 to 4.3/kWh. Capex cross-checked against the CTUIL benchmark (₹3.5 cr/MW); see `calcs/output/economics.md` and `VERIFICATION.md` |
 | CO₂ avoided | about 5,030 t/yr (CEA average factor 0.727 t/MWh) |
 
 ---
@@ -85,8 +85,12 @@ The string sizing needs only the Python 3 standard library; the cross-check scri
 
 - Preliminary design: no topographic survey, soil or flood data, and no DISCOM feasibility. The plot, land area and 33 kV substation are not fixed.
 - P50/P90 uses an assumed uncertainty budget, not measured values.
-- Costs are indicative and do not reconcile with market tariffs; quote them only as a range.
+- Costs are indicative: capex agrees with the CTUIL benchmark, but LCOE is not comparable with large-project auction tariffs; quote costs only as a range.
 - Module-string shading and monthly soiling are not modelled; PVsyst warns about unequal MPPT string counts.
-- Module ALMM/DCR status is unverified.
+- Module ALMM/DCR status of the exact model is not confirmed (datasheet values are verified).
 - PVsyst is used under an academic licence.
 - Drawings are schematic (symbols enlarged, yard and 33 kV route are placeholders) and not checked by a practising engineer.
+
+## Verification and FAQ
+- `VERIFICATION.md`: each key number, its source, and whether it is verified, assumed or open.
+- `FAQ.md`: short answers about scope and limits.

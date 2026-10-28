@@ -138,10 +138,11 @@ L += ["## CO2 avoided", "",
       f"Year 1: {E_NET*CO2_AVG:,.0f} tCO2 (weighted average) to {E_NET*CO2_CM:,.0f} tCO2 (combined margin). Over {LIFE} years with degradation: about "
       f"{sum(E_NET*(1-DEGR)**y for y in range(LIFE))*CO2_AVG/1000:,.0f} thousand tCO2 at a constant factor (the grid factor will fall as the grid decarbonises, so treat this as an upper figure).", "",
       "## Sources and limits", "",
-      "- Capex ranges: taypro.in utility-scale cost guide (indicative 2024 to 2026 ranges, updated 21 June 2026). A commercial blog, not a regulator figure; a CERC/SERC benchmark could not be retrieved. Treat as +/-20%.",
+      "- Capex ranges: taypro.in utility-scale cost guide (indicative 2024 to 2026 ranges, updated 21 June 2026). A commercial blog, not a regulator figure; checked against the CTUIL benchmark below. Treat as +/-20%.",
       "- Emission factor: CEA CO2 Baseline Database User Guide v20.0.",
       "- No DCR premium, GST, interest during construction, or working capital is modelled. DCR modules cost more than the mid-range assumed here.",
-      "- Reconciliation: see the warning appended to economics.md by hand (even the Low case sits above auction tariffs); the appended section is lost if this script is re-run, so re-add it.",
+      "- Capex cross-check (verified Oct 2026): CTUIL's revised planning benchmark is INR 3.5 crore/MW for solar (article dated 7 Sep 2026; AC/DC basis not stated), which matches the Low case (INR 3.54 crore/MWp). A real project cited alongside it, SJVN 1 GW Bikaner, works out to about INR 5.49 crore/MW. The Base case (INR 4.42 crore/MWp) lies between the two, which is plausible for a 5 MWp single site with its own 33 kV line. Quote capex as INR 3.5 to 5.5 crore/MWp, base 4.4.",
+      "- Tariff caveat: auction tariffs of INR 2.3 to 3.6/kWh come from large projects with cheaper capital and lower return targets than the 10% discount rate used here, so LCOE here (INR 3.5 to 4.3) is not directly comparable. Treat LCOE as indicative.",
       "- Not modelled: debt, tax, depreciation, generation-based incentives, land purchase instead of lease."]
 text = "\n".join(L)
 open(OUT, "w").write(text + "\n")

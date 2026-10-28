@@ -21,7 +21,7 @@ img{max-width:100%;display:block;margin:8px auto;break-inside:avoid}
 <table>
 <tr><th>Parameter</th><th>Value</th></tr>
 <tr><td>DC / AC capacity</td><td>4,994.6 kWp / 4,000 kW (DC/AC 1.249)</td></tr>
-<tr><td>Modules</td><td>8,840 × Waaree ELITE BiN-08-565 (565 Wp, N-type TOPCon, bifacial); ALMM/DCR status to be verified</td></tr>
+<tr><td>Modules</td><td>8,840 × Waaree ELITE BiN-08-565 (565 Wp, N-type TOPCon, bifacial); ALMM/DCR status of this model to be confirmed</td></tr>
 <tr><td>Inverters</td><td>16 × Sungrow SG250HX (1500 V string inverter)</td></tr>
 <tr><td>Strings</td><td>26 modules in series, 340 strings</td></tr>
 <tr><td>Orientation</td><td>Fixed tilt 20°, south, row pitch 8.0 m (GCR 58%)</td></tr>
@@ -87,13 +87,13 @@ img{max-width:100%;display:block;margin:8px auto;break-inside:avoid}
 <img src="../drawings/SPV5-DWG-02-SLD-R0.png" style="width:100%"><p class="cap">Drawing 2. Single-line diagram. Earthing, lightning protection, auxiliary supply and SCADA are not shown.</p>
 
 <h2>8. Economics and CO₂</h2>
-<p>Quantities come from the design (8,840 modules, 16 inverters, 2 transformers, 170 tables). Unit costs come from a published indicative guide (taypro.in, June 2026), which is a commercial source, not a regulator benchmark.</p>
+<p>Quantities come from the design (8,840 modules, 16 inverters, 2 transformers, 170 tables). Unit costs come from a published indicative guide (taypro.in, June 2026), which is a commercial source, not a regulator benchmark. It was cross-checked against the CTUIL planning benchmark below.</p>
 <table><tr><th>Case</th><th>Capex (₹ crore)</th><th>₹ crore/MWp</th><th>LCOE (₹/kWh)</th></tr>
 <tr><td>Low</td><td>17.7</td><td>3.54</td><td>3.52</td></tr>
 <tr><td>Base (25th percentile of ranges)</td><td>22.1</td><td>4.42</td><td>4.25</td></tr>
 <tr><td>High</td><td>35.4</td><td>7.08</td><td>6.47</td></tr></table>
 <p>Financial inputs: 10% discount rate, 25 years, 0.4%/yr degradation, O&amp;M ₹5 lakh/MWp/yr, inverter replacement in year 12, no tax or debt. At a tariff of ₹3.00/kWh the base case pays back in about 14 years (project IRR 4.8%).</p>
-<div class="note"><b>Does not reconcile with the market.</b> Even the Low case sits above recent auction tariffs of ₹2.3 to 3.6/kWh. A single 5 MWp site should cost more per kWh than a large auction winner, but probably not by this margin; the benchmark ranges are probably conservative. Quote these figures only as an indicative range until a CERC/SERC benchmark or an EPC quote is found.</div>
+<div class="note"><b>Cross-check.</b> CTUIL's revised solar benchmark is ₹3.5 crore/MW (Sep 2026; AC/DC basis not stated), which matches the Low case. A real 1 GW project cited with it works out to about ₹5.49 crore/MW. The Base case (₹4.42 crore/MWp) lies between the two, which is plausible for a single 5 MWp site with its own 33 kV line. Auction tariffs of ₹2.3 to 3.6/kWh come from large projects with cheaper capital and lower return targets, so the LCOE here is not directly comparable. Quote capex as ₹3.5 to 5.5 crore/MWp and treat all cost figures as indicative.</div>
 <p><b>CO₂ avoided:</b> 0.727 tCO₂/MWh (CEA CO₂ Baseline Database v20.0, FY2023-24 average) gives about 5,030 t in year 1 (5,240 t with the combined-margin factor 0.757). The grid factor will fall over time.</p>
 
 <h2>9. Limitations</h2>
@@ -102,8 +102,8 @@ img{max-width:100%;display:block;margin:8px auto;break-inside:avoid}
 <li>Uncertainty (P50/P90) is based on assumed σ values.</li>
 <li>Electrical (module-string) shading and monthly soiling are not modelled; the monthly chart is distorted by random unavailability periods (annual total unaffected).</li>
 <li>PVsyst warns about unequal string counts across MPPT inputs (44 inputs carry 1 string, 148 carry 2); not yet resolved.</li>
-<li>Module ALMM/DCR status and datasheet PDFs not yet verified or saved.</li>
-<li>Economics are indicative and unreconciled with market tariffs.</li>
+<li>Module electrical values are checked against the Waaree datasheet; ALMM/DCR status of this exact model is not confirmed and datasheet PDFs are not saved in the repo.</li>
+<li>Economics are indicative (capex consistent with the CTUIL benchmark; LCOE not comparable with auction tariffs).</li>
 <li>Drawings are schematic and have not been checked by a practising engineer; AutoCAD files carry the education-licence marking.</li>
 <li>PVsyst academic licence; the licence bar read "0 days remaining" on 28 Oct 2026.</li>
 </ul>

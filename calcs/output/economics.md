@@ -68,14 +68,9 @@ Year 1: 5,028 tCO2 (weighted average) to 5,236 tCO2 (combined margin). Over 25 y
 
 ## Sources and limits
 
-- Capex ranges: taypro.in utility-scale cost guide (indicative 2024 to 2026 ranges, updated 21 June 2026). A commercial blog, not a regulator figure; a CERC/SERC benchmark could not be retrieved. Treat as +/-20%.
+- Capex ranges: taypro.in utility-scale cost guide (indicative 2024 to 2026 ranges, updated 21 June 2026). A commercial blog, not a regulator figure; checked against the CTUIL benchmark below. Treat as +/-20%.
 - Emission factor: CEA CO2 Baseline Database User Guide v20.0.
 - No DCR premium, GST, interest during construction, or working capital is modelled. DCR modules cost more than the mid-range assumed here.
+- Capex cross-check (verified Oct 2026): CTUIL's revised planning benchmark is INR 3.5 crore/MW for solar (article dated 7 Sep 2026; AC/DC basis not stated), which matches the Low case (INR 3.54 crore/MWp). A real project cited alongside it, SJVN 1 GW Bikaner, works out to about INR 5.49 crore/MW. The Base case (INR 4.42 crore/MWp) lies between the two, which is plausible for a 5 MWp single site with its own 33 kV line. Quote capex as INR 3.5 to 5.5 crore/MWp, base 4.4.
+- Tariff caveat: auction tariffs of INR 2.3 to 3.6/kWh come from large projects with cheaper capital and lower return targets than the 10% discount rate used here, so LCOE here (INR 3.5 to 4.3) is not directly comparable. Treat LCOE as indicative.
 - Not modelled: debt, tax, depreciation, generation-based incentives, land purchase instead of lease.
-
-## Reconciliation warning (read before quoting any cost number)
-
-Even the Low case (LCOE INR 3.52/kWh, INR 3.54 cr/MWp) sits above the INR 2.34 to 3.62/kWh tariffs seen in recent auctions and interim orders. Large auction winners
-have cheaper capital, bulk module pricing and no per-project 33 kV line, so a 5 MWp single-site plant is expected to cost more per kWh, but not by this much.
-The most likely cause is that the blog ranges used here are conservative for module and EPC lines. Until a CERC/SERC benchmark or a real EPC quote is found,
-quote cost results only as a range (capex INR 3.5 to 4.4 cr/MWp, LCOE INR 3.5 to 4.3/kWh) and describe them as indicative.

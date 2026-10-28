@@ -9,5 +9,6 @@ Save the actual PDFs next to this file (names below) so the repo is self-contain
 
 ## Still to verify (you, on the official sites)
 - [ ] Module appears on the **MNRE ALMM List-I** (solar PV modules), and whether this variant is **DCR** or non-DCR
+- [x] Module STC values and coefficients matched to the Waaree datasheet (28 Oct 2026); SG250HX limits matched to the Sungrow datasheet copy
 - [ ] Latest Sungrow SG250HX datasheet revision (MPPT range and derating)
 - [ ] Whether you would rather present a Vikram or Websol module (the Vikram product pages list no electrical specs; the PDFs are on https://www.vikramsolar.com/downloads/)
